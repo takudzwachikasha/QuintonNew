@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prestige International Academy</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Splide Carousel -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Framer Motion -->
+    <script src="https://unpkg.com/framer-motion@10.16.4/dist/framer-motion.js"></script>
+    <style>
+        .hero-gradient {
+            background: linear-gradient(135deg, #001f3f 0%, #003366 50%, #00509e 100%);
+        }
+
+        .card-hover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+
+        .transition-all {
+            transition: all 0.3s ease;
+        }
+    </style>
+</head>
+
+<body class="font-sans antialiased text-gray-800">
+    <!-- Navigation -->
+    <nav class="bg-navy-900 text-white shadow-lg">
+        <div class="container mx-auto px-6 py-3 flex justify-between items-center">
+            <div class="flex items-center space-x-4">
+                <img src="https://via.placeholder.com/50x50" alt="School Logo" class="h-12">
+                <span class="text-xl font-bold">Prestige International Academy</span>
+            </div>
+            <div class="hidden md:flex space-x-8">
+                <a href="#" class="hover:text-blue-300 transition-all">Home</a>
+                <a href="#" class="hover:text-blue-300 transition-all">About</a>
+                <a href="#" class="hover:text-blue-300 transition-all">Academics</a>
+                <a href="#" class="hover:text-blue-300 transition-all">Admissions</a>
+                <a href="#" class="hover:text-blue-300 transition-all">Contact</a>
+            </div>
+            <button class="md:hidden focus:outline-none">
+                <i class="fas fa-bars text-2xl"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero Carousel -->
+    <section class="splide" aria-label="School Highlights">
+        <div class="splide__track">
+            <ul class="splide__list">
+                <li class="splide__slide">
+                    <div class="hero-gradient h-96 flex items-center">
+                        <div class="container mx-auto px-6 text-white text-center">
+                            <h1 class="text-4xl md:text-5xl font-bold mb-4">Excellence in Global Education</h1>
+                            <p class="text-xl mb-8">Preparing students for success in an interconnected world</p>
+                            <button
+                                class="bg-white text-blue-800 px-8 py-3 rounded-full font-semibold hover:bg-blue-100 transition-all">Explore
+                                Programs</button>
+                        </div>
+                    </div>
+                </li>
+                <li class="splide__slide">
+                    <div class="hero-gradient h-96 flex items-center">
+                        <div class="container mx-auto px-6 text-white text-center">
+                            <h1 class="text-4xl md:text-5xl font-bold mb-4">State-of-the-Art Facilities</h1>
+                            <p class="text-xl mb-8">World-class learning environments for 21st century education</p>
+                            <button
+                                class="bg-white text-blue-800 px-8 py-3 rounded-full font-semibold hover:bg-blue-100 transition-all">Virtual
+                                Tour</button>
+                        </div>
+                    </div>
+                </li>
+                <li class="splide__slide">
+                    <div class="hero-gradient h-96 flex items-center">
+                        <div class="container mx-auto px-6 text-white text-center">
+                            <h1 class="text-4xl md:text-5xl font-bold mb-4">Now Accepting Applications</h1>
+                            <p class="text-xl mb-8">Join our community of curious minds and future leaders</p>
+                            <button
+                                class="bg-white text-blue-800 px-8 py-3 rounded-full font-semibold hover:bg-blue-100 transition-all">Apply
+                                Now</button>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Quick Links Section -->
+    <section class="py-16 bg-gray-50">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-bold text-center mb-12 text-blue-900">Discover Our School</h2>
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div class="bg-white rounded-xl shadow-md overflow-hidden transition-all card-hover">
+                    <div class="p-6">
+                        <div class="text-blue-600 text-4xl mb-4">
+                            <i class="fas fa-graduation-cap"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-2 text-blue-900">Academics</h3>
+                        <p class="text-gray-600">Explore our rigorous curriculum and specialized programs.</p>
+                        <a href="#" class="mt-4 inline-block text-blue-600 hover:text-blue-800 font-medium">Learn More
+                            →</a>
+                    </div>
+                </div>
+                <div class="bg-white rounded-xl shadow-md overflow-hidden transition-all card-hover">
+                    <div class="p-6">
+                        <div class="text-blue-600 text-4xl mb-4">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-2 text-blue-900">Student Life</h3>
+                        <p class="text-gray-600">Vibrant community with diverse extracurricular activities.</p>
+                        <a href="#" class="mt-4 inline-block text-blue-600 hover:text-blue-800 font-medium">Learn More
+                            →</a>
+                    </div>
+                </div>
+                <div class="bg-white rounded-xl shadow-md overflow-hidden transition-all card-hover">
+                    <div class="p-6">
+                        <div class="text-blue-600 text-4xl mb-4">
+                            <i class="fas fa-door-open"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-2 text-blue-900">Admissions</h3>
+                        <p class="text-gray-600">Start your journey to becoming part of our school family.</p>
+                        <a href="#" class="mt-4 inline-block text-blue-600 hover:text-blue-800 font-medium">Learn More
+                            →</a>
+                    </div>
+                </div>
+                <div class="bg-white rounded-xl shadow-md overflow-hidden transition-all card-hover">
+                    <div class="p-6">
+                        <div class="text-blue-600 text-4xl mb-4">
+                            <i class="fas fa-calendar-alt"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-2 text-blue-900">Events</h3>
+                        <p class="text-gray-600">See what's happening at our school this month.</p>
+                        <a href="#" class="mt-4 inline-block text-blue-600 hover:text-blue-800 font-medium">Learn More
+                            →</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured News Section -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="flex justify-between items-center mb-12">
+                <h2 class="text-3xl font-bold text-blue-900">Latest News & Announcements</h2>
+                <a href="#" class="text-blue-600 hover:text-blue-800 font-medium">View All News →</a>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="rounded-xl overflow-hidden shadow-md transition-all card-hover">
+                    <img src="https://via.placeholder.com/400x225" alt="News Image" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <span class="text-sm text-blue-600">June 15, 2023</span>
+                        <h3 class="text-xl font-semibold my-2 text-blue-900">School Wins International Science Fair</h3>
+                        <p class="text-gray-600 mb-4">Our students took top honors at the Global Youth Science
+                            Competition with their innovative renewable energy project.</p>
+                        <a href="#" class="text-blue-600 hover:text-blue-800 font-medium">Read More →</a>
+                    </div>
+                </div>
+                <div class="rounded-xl overflow-hidden shadow-md transition-all card-hover">
+                    <img src="https://via.placeholder.com/400x225" alt="News Image" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <span class="text-sm text-blue-600">June 8, 2023</span>
+                        <h3 class="text-xl font-semibold my-2 text-blue-900">New STEM Wing Opening Ceremony</h3>
+                        <p class="text-gray-600 mb-4">State-of-the-art facilities will provide students with
+                            cutting-edge resources for scientific exploration.</p>
+                        <a href="#" class="text-blue-600 hover:text-blue-800 font-medium">Read More →</a>
+                    </div>
+                </div>
+                <div class="rounded-xl overflow-hidden shadow-md transition-all card-hover">
+                    <img src="https://via.placeholder.com/400x225" alt="News Image" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <span class="text-sm text-blue-600">May 30, 2023</span>
+                        <h3 class="text-xl font-semibold my-2 text-blue-900">Alumni Spotlight: Dr. Sarah Chen</h3>
+                        <p class="text-gray-600 mb-4">Class of 2010 graduate recognized for groundbreaking medical
+                            research in neurology.</p>
+                        <a href="#" class="text-blue-600 hover:text-blue-800 font-medium">Read More →</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="py-16 bg-blue-50">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-bold text-center mb-12 text-blue-900">What Our Community Says</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="bg-white p-8 rounded-xl shadow-md relative">
+                    <div
+                        class="absolute -top-4 -left-4 bg-blue-600 text-white rounded-full w-12 h-12 flex items-center justify-center">
+                        <i class="fas fa-quote-left text-xl"></i>
+                    </div>
+                    <p class="text-gray-700 mb-6 italic">"The global perspective my child has gained at Prestige Academy
+                        is unparalleled. The faculty truly nurtures both academic excellence and personal growth."</p>
+                    <div class="flex items-center">
+                        <img src="https://via.placeholder.com/60x60" alt="Parent" class="rounded-full w-12 h-12 mr-4">
+                        <div>
+                            <h4 class="font-semibold text-blue-900">Michael Johnson</h4>
+                            <p class="text-gray-600 text-sm">Parent of Grade 10 Student</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-white p-8 rounded-xl shadow-md relative">
+                    <div
+                        class="absolute -top-4 -left-4 bg-blue-600 text-white rounded-full w-12 h-12 flex items-center justify-center">
+                        <i class="fas fa-quote-left text-xl"></i>
+                    </div>
+                    <p class="text-gray-700 mb-6 italic">"The research opportunities and mentorship I received prepared
+                        me perfectly for university. I'm now studying at MIT thanks to my foundation here."</p>
+                    <div class="flex items-center">
+                        <img src="https://via.placeholder.com/60x60" alt="Alumni" class="rounded-full w-12 h-12 mr-4">
+                        <div>
+                            <h4 class="font-semibold text-blue-900">Emily Rodriguez</h4>
+                            <p class="text-gray-600 text-sm">Class of 2022, MIT '26</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="py-16 hero-gradient text-white">
+        <div class="container mx-auto px-6 text-center">
+            <h2 class="text-3xl md:text-4xl font-bold mb-6">Ready to Join Our Learning Community?</h2>
+            <p class="text-xl mb-8 max-w-3xl mx-auto">Discover how Prestige International Academy can help your child
+                achieve their full potential in a nurturing, globally-minded environment.</p>
+            <div class="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-4">
+                <button
+                    class="bg-white text-blue-800 px-8 py-3 rounded-full font-semibold hover:bg-blue-100 transition-all">Schedule
+                    a Tour</button>
+                <button
+                    class="border-2 border-white px-8 py-3 rounded-full font-semibold hover:bg-white hover:text-blue-800 transition-all">Contact
+                    Admissions</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-blue-900 text-white py-12">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <img src="https://via.placeholder.com/50x50" alt="School Logo" class="h-12 mb-4">
+                    <p class="mb-4">Prestige International Academy provides world-class education to students from over
+                        40 countries.</p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-white hover:text-blue-300"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="text-white hover:text-blue-300"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="text-white hover:text-blue-300"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="text-white hover:text-blue-300"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Quick Links</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="hover:text-blue-300">About Us</a></li>
+                        <li><a href="#" class="hover:text-blue-300">Academics</a></li>
+                        <li><a href="#" class="hover:text-blue-300">Admissions</a></li>
+                        <li><a href="#" class="hover:text-blue-300">Student Life</a></li>
+                        <li><a href="#" class="hover:text-blue-300">News & Events</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Contact Us</h3>
+                    <address class="not-italic">
+                        <p class="mb-2">123 Education Avenue</p>
+                        <p class="mb-2">Global City, GC 12345</p>
+                        <p class="mb-2">Phone: +1 (555) 123-4567</p>
+                        <p class="mb-2">Email: info@prestigeacademy.edu</p>
+                    </address>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Newsletter</h3>
+                    <p class="mb-4">Subscribe to receive updates and school news.</p>
+                    <form class="flex">
+                        <input type="email" placeholder="Your email"
+                            class="px-4 py-2 w-full rounded-l focus:outline-none text-gray-800">
+                        <button type="submit" class="bg-blue-600 px-4 py-2 rounded-r hover:bg-blue-700 transition-all">
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+            <div class="border-t border-blue-800 mt-8 pt-8 text-center text-blue-300 text-sm">
+                <p>© 2023 Prestige International Academy. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Splide JS -->
+    <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/js/splide.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            new Splide('.splide', {
+                type: 'loop',
+                autoplay: true,
+                interval: 5000,
+                pauseOnHover: false,
+                arrows: false,
+                pagination: false
+            }).mount();
+
+            // Simple animation for cards on scroll
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = 1;
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            document.querySelectorAll('.card-hover').forEach(card => {
+                card.style.opacity = 0;
+                card.style.transform = 'translateY(20px)';
+                card.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+                observer.observe(card);
+            });
+        });
+    </script>
+</body>
+
+</html>
