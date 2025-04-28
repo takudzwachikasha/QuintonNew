@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admissions | Quinton Group of Schools</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .hero-gradient {
+            background: linear-gradient(135deg, #001f3f 0%, #003366 50%, #00509e 100%);
+        }
+
+        .process-step {
+            position: relative;
+        }
+
+        .process-step:not(:last-child):after {
+            content: "";
+            position: absolute;
+            left: 24px;
+            top: 40px;
+            height: calc(100% - 40px);
+            width: 2px;
+            background: #2563eb;
+        }
+
+        .tab-active {
+            border-bottom: 3px solid #2563eb;
+            color: #2563eb;
+            font-weight: 600;
+        }
+    </style>
+</head>
+
+<body class="font-sans antialiased text-gray-800">
+    <!-- Navigation -->
+    <nav class="bg-blue-900 text-white shadow-lg">
+        <div class="container mx-auto px-6 py-3 flex justify-between items-center">
+            <div class="flex items-center space-x-4">
+                <img src="https://via.placeholder.com/50x50" alt="School Logo" class="h-12">
+                <span class="text-xl font-bold">Quinton Group of Schools</span>
+            </div>
+            <div class="hidden md:flex space-x-8">
+                <a href="index.html" class="hover:text-blue-300">Home</a>
+                <a href="about.html" class="hover:text-blue-300">About</a>
+                <a href="academics.html" class="hover:text-blue-300">Academics</a>
+                <a href="admissions.html" class="text-blue-300 font-medium">Admissions</a>
+                <a href="contact.html" class="hover:text-blue-300">Contact</a>
+            </div>
+            <button class="md:hidden focus:outline-none">
+                <i class="fas fa-bars text-2xl"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-gradient py-20 text-white">
+        <div class="container mx-auto px-6 text-center">
+            <h1 class="text-4xl md:text-5xl font-bold mb-6">Admissions</h1>
+            <p class="text-xl max-w-3xl mx-auto">Begin your journey to excellence. We're accepting applications for the
+                2024-2025 academic year.</p>
+        </div>
+    </section>
+
+    <!-- Application Tabs -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-wrap border-b border-gray-200 mb-12">
+                <button class="tab-active py-4 px-6 text-lg font-medium">Day School</button>
+                <button class="py-4 px-6 text-lg font-medium text-gray-500 hover:text-blue-600">Boarding</button>
+                <button class="py-4 px-6 text-lg font-medium text-gray-500 hover:text-blue-600">International
+                    Students</button>
+                <button class="py-4 px-6 text-lg font-medium text-gray-500 hover:text-blue-600">Scholarships</button>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-16">
+                <!-- Key Dates Card -->
+                <div class="bg-blue-50 border border-blue-200 rounded-xl p-8">
+                    <h3 class="text-2xl font-bold text-blue-900 mb-6">Key Dates</h3>
+                    <ul class="space-y-6">
+                        <li class="flex">
+                            <div
+                                class="bg-blue-100 text-blue-800 rounded-full w-10 h-10 flex items-center justify-center mr-4 flex-shrink-0">
+                                <i class="fas fa-calendar-alt"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-blue-900">Application Deadline</h4>
+                                <p class="text-gray-700">January 15, 2024</p>
+                            </div>
+                        </li>
+                        <li class="flex">
+                            <div
+                                class="bg-blue-100 text-blue-800 rounded-full w-10 h-10 flex items-center justify-center mr-4 flex-shrink-0">
+                                <i class="fas fa-calendar-check"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-blue-900">Admissions Decisions</h4>
+                                <p class="text-gray-700">March 1, 2024</p>
+                            </div>
+                        </li>
+                        <li class="flex">
+                            <div
+                                class="bg-blue-100 text-blue-800 rounded-full w-10 h-10 flex items-center justify-center mr-4 flex-shrink-0">
+                                <i class="fas fa-school"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-blue-900">Orientation Week</h4>
+                                <p class="text-gray-700">August 19-23, 2024</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Requirements Card -->
+                <div class="bg-white border border-gray-200 rounded-xl shadow-sm overflow-hidden">
+                    <div class="bg-blue-900 text-white px-6 py-4">
+                        <h3 class="text-xl font-bold">Admissions Requirements</h3>
+                    </div>
+                    <div class="p-6">
+                        <ul class="space-y-4">
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-blue-600 mt-1 mr-3"></i>
+                                <span>Completed application form</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-blue-600 mt-1 mr-3"></i>
+                                <span>Previous school transcripts (last 2 years)</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-blue-600 mt-1 mr-3"></i>
+                                <span>Teacher recommendations (2 required)</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-blue-600 mt-1 mr-3"></i>
+                                <span>Entrance assessment or SSAT scores</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-blue-600 mt-1 mr-3"></i>
+                                <span>Family interview (virtual or in-person)</span>
+                            </li>
+                        </ul>
+                        <a href="#" class="mt-6 inline-block text-blue-600 hover:text-blue-800 font-medium">Download
+                            Full Checklist →</a>
+                    </div>
+                </div>
+
+                <!-- Tuition Card -->
+                <div class="bg-white border border-gray-200 rounded-xl shadow-sm overflow-hidden">
+                    <div class="bg-blue-900 text-white px-6 py-4">
+                        <h3 class="text-xl font-bold">Tuition & Fees (2024-2025)</h3>
+                    </div>
+                    <div class="p-6">
+                        <table class="w-full mb-4">
+                            <tbody class="divide-y divide-gray-200">
+                                <tr>
+                                    <td class="py-2 text-gray-700">Grade K-5</td>
+                                    <td class="py-2 text-right font-medium">£18,500/year</td>
+                                </tr>
+                                <tr>
+                                    <td class="py-2 text-gray-700">Grade 6-8</td>
+                                    <td class="py-2 text-right font-medium">£22,300/year</td>
+                                </tr>
+                                <tr>
+                                    <td class="py-2 text-gray-700">Grade 9-12</td>
+                                    <td class="py-2 text-right font-medium">£26,750/year</td>
+                                </tr>
+                                <tr>
+                                    <td class="py-2 text-gray-700">Boarding (additional)</td>
+                                    <td class="py-2 text-right font-medium">£15,000/year</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <p class="text-sm text-gray-600">* Payment plans and financial aid available</p>
+                        <a href="#" class="mt-4 inline-block text-blue-600 hover:text-blue-800 font-medium">View Fee
+                            Breakdown →</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Application Process -->
+    <section class="py-16 bg-gray-50">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-bold text-center text-blue-900 mb-12">Our Admissions Process</h2>
+            <div class="max-w-3xl mx-auto">
+                <!-- Process Step -->
+                <div class="process-step flex pb-12">
+                    <div
+                        class="bg-blue-600 text-white rounded-full w-12 h-12 flex items-center justify-center flex-shrink-0 mr-6">
+                        <span class="font-bold text-xl">1</span>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-semibold mb-3 text-blue-900">Inquiry & Tour</h3>
+                        <p class="text-gray-700">Begin by submitting an inquiry form or scheduling a campus tour.
+                            Virtual tours available for international families.</p>
+                    </div>
+                </div>
+                <!-- Process Step -->
+                <div class="process-step flex pb-12">
+                    <div
+                        class="bg-blue-600 text-white rounded-full w-12 h-12 flex items-center justify-center flex-shrink-0 mr-6">
+                        <span class="font-bold text-xl">2</span>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-semibold mb-3 text-blue-900">Submit Application</h3>
+                        <p class="text-gray-700">Complete our online application and upload required documents
+                            (transcripts, recommendations, etc.).</p>
+                    </div>
+                </div>
+                <!-- Process Step -->
+                <div class="process-step flex pb-12">
+                    <div
+                        class="bg-blue-600 text-white rounded-full w-12 h-12 flex items-center justify-center flex-shrink-0 mr-6">
+                        <span class="font-bold text-xl">3</span>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-semibold mb-3 text-blue-900">Student Assessment</h3>
+                        <p class="text-gray-700">All applicants complete an age-appropriate assessment (academic testing
+                            or classroom observation).</p>
+                    </div>
+                </div>
+                <!-- Process Step -->
+                <div class="process-step flex pb-12">
+                    <div
+                        class="bg-blue-600 text-white rounded-full w-12 h-12 flex items-center justify-center flex-shrink-0 mr-6">
+                        <span class="font-bold text-xl">4</span>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-semibold mb-3 text-blue-900">Family Interview</h3>
+                        <p class="text-gray-700">Meet with our admissions team to discuss your child's needs and the
+                            school's philosophy.</p>
+                    </div>
+                </div>
+                <!-- Process Step -->
+                <div class="process-step flex">
+                    <div
+                        class="bg-blue-600 text-white rounded-full w-12 h-12 flex items-center justify-center flex-shrink-0 mr-6">
+                        <span class="font-bold text-xl">5</span>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-semibold mb-3 text-blue-900">Admission Decision</h3>
+                        <p class="text-gray-700">Receive notification within 3 weeks of completing all steps. Accepted
+                            students receive enrollment packages.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Scholarships -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-blue-900 mb-4">Scholarships & Financial Aid</h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">We award over £2M annually to deserving students
+                    based on merit and need</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="border border-gray-200 rounded-lg p-6 hover:shadow-md transition-all">
+                    <div class="text-blue-600 text-4xl mb-4">
+                        <i class="fas fa-medal"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3 text-blue-900">Academic Excellence</h3>
+                    <p class="text-gray-700 mb-4">For students with exceptional academic records (top 5% nationally).
+                        Covers up to 100% tuition.</p>
+                    <a href="#" class="text-blue-600 hover:text-blue-800 font-medium">Learn Requirements →</a>
+                </div>
+                <div class="border border-gray-200 rounded-lg p-6 hover:shadow-md transition-all">
+                    <div class="text-blue-600 text-4xl mb-4">
+                        <i class="fas fa-music"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3 text-blue-900">Arts & Athletics</h3>
+                    <p class="text-gray-700 mb-4">For students demonstrating outstanding talent in arts, music, or
+                        sports. Awards up to 50% tuition.</p>
+                    <a href="#" class="text-blue-600 hover:text-blue-800 font-medium">View Categories →</a>
+                </div>
+                <div class="border border-gray-200 rounded-lg p-6 hover:shadow-md transition-all">
+                    <div class="text-blue-600 text-4xl mb-4">
+                        <i class="fas fa-hands-helping"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3 text-blue-900">Need-Based Aid</h3>
+                    <p class="text-gray-700 mb-4">Financial assistance for families demonstrating need. Amounts vary
+                        based on circumstances.</p>
+                    <a href="#" class="text-blue-600 hover:text-blue-800 font-medium">Calculate Eligibility →</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- International Students -->
+    <section class="py-16 bg-blue-50">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div>
+                    <h2 class="text-3xl font-bold text-blue-900 mb-6">International Students</h2>
+                    <p class="text-gray-700 mb-6 text-lg">Quinton welcomes students from over 40 countries. Our
+                        dedicated international program includes:</p>
+                    <ul class="space-y-4 mb-8">
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-blue-600 mt-1 mr-3"></i>
+                            <span>ESL support and language immersion</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-blue-600 mt-1 mr-3"></i>
+                            <span>Visa and immigration assistance</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-blue-600 mt-1 mr-3"></i>
+                            <span>Homestay and boarding options</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-blue-600 mt-1 mr-3"></i>
+                            <span>Cultural orientation programs</span>
+                        </li>
+                    </ul>
+                    <a href="#"
+                        class="bg-blue-700 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-800 inline-block">International
+                        Admissions Guide</a>
+                </div>
+                <div class="bg-white p-8 rounded-xl shadow-md">
+                    <h3 class="text-xl font-semibold mb-6 text-blue-900">Required Documents</h3>
+                    <ul class="space-y-4">
+                        <li class="flex items-start p-4 bg-gray-50 rounded-lg">
+                            <i class="fas fa-passport text-blue-600 mr-4 text-xl"></i>
+                            <div>
+                                <h4 class="font-medium text-blue-900">Passport & Visa</h4>
+                                <p class="text-gray-600 text-sm">Copy of passport and previous student visas (if
+                                    applicable)</p>
+                            </div>
+                        </li>
+                        <li class="flex items-start p-4 bg-gray-50 rounded-lg">
+                            <i class="fas fa-file-alt text-blue-600 mr-4 text-xl"></i>
+                            <div>
+                                <h4 class="font-medium text-blue-900">Transcripts</h4>
+                                <p class="text-gray-600 text-sm">Officially translated academic records</p>
+                            </div>
+                        </li>
+                        <li class="flex items-start p-4 bg-gray-50 rounded-lg">
+                            <i class="fas fa-language text-blue-600 mr-4 text-xl"></i>
+                            <div>
+                                <h4 class="font-medium text-blue-900">English Proficiency</h4>
+                                <p class="text-gray-600 text-sm">TOEFL/IELTS scores for non-native speakers</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-16 hero-gradient text-white">
+        <div class="container mx-auto px-6 text-center">
+            <h2 class="text-3xl md:text-4xl font-bold mb-6">Begin Your Application</h2>
+            <p class="text-xl mb-8 max-w-3xl mx-auto">Spaces are limited for the 2024-2025 academic year. Start your
+                application today.</p>
+            <div class="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-4">
+                <a href="#"
+                    class="bg-white text-blue-800 px-8 py-3 rounded-lg font-semibold hover:bg-blue-100 inline-block">Apply
+                    Now</a>
+                <a href="#"
+                    class="border-2 border-white px-8 py-3 rounded-lg font-semibold hover:bg-white hover:text-blue-800 inline-block">Request
+                    Information</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-blue-900 text-white py-12">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <img src="https://via.placeholder.com/50x50" alt="School Logo" class="h-12 mb-4">
+                    <p class="mb-4">Quinton Group of Schools – Where academic excellence meets global citizenship.</p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-white hover:text-blue-300"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="text-white hover:text-blue-300"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="text-white hover:text-blue-300"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Admissions</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="hover:text-blue-300">Application Process</a></li>
+                        <li><a href="#" class="hover:text-blue-300">Tuition & Fees</a></li>
+                        <li><a href="#" class="hover:text-blue-300">Scholarships</a></li>
+                        <li><a href="#" class="hover:text-blue-300">International Students</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Resources</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="hover:text-blue-300">School Calendar</a></li>
+                        <li><a href="#" class="hover:text-blue-300">Parent Portal</a></li>
+                        <li><a href="#" class="hover:text-blue-300">Uniform Policy</a></li>
+                        <li><a href="#" class="hover:text-blue-300">Transportation</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Contact Admissions</h3>
+                    <p class="mb-2"><i class="fas fa-phone mr-2"></i> +44 20 7946 0958</p>
+                    <p class="mb-4"><i class="fas fa-envelope mr-2"></i> admissions@quitonschools.com</p>
+                    <a href="contact.html" class="text-blue-300 hover:text-white font-medium">Schedule a Visit →</a>
+                </div>
+            </div>
+            <div class="border-t border-blue-800 mt-8 pt-8 text-center text-blue-300">
+                <p>© 2023 Quinton Group of Schools. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Tab functionality
+        document.addEventListener('DOMContentLoaded', function () {
+            const tabs = document.querySelectorAll('[role="tab"]');
+
+            tabs.forEach(tab => {
+                tab.addEventListener('click', () => {
+                    tabs.forEach(t => t.classList.remove('tab-active', 'text-blue-600'));
+                    tab.classList.add('tab-active', 'text-blue-600');
+                    // Here you would typically load content for the selected tab
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>
