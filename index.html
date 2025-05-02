@@ -30,12 +30,317 @@
         .transition-all {
             transition: all 0.3s ease;
         }
+         /* Base styles */
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        
+        .text-white {
+            color: white;
+        }
+        
+        .shadow-lg {
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        }
+        
+        .container {
+            width: 100%;
+        }
+        
+        .mx-auto {
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .px-6 {
+            padding-left: 1.5rem;
+            padding-right: 1.5rem;
+        }
+        
+        .py-3 {
+            padding-top: 0.75rem;
+            padding-bottom: 0.75rem;
+        }
+        
+        .flex {
+            display: flex;
+        }
+        
+        .justify-between {
+            justify-content: space-between;
+        }
+        
+        .items-center {
+            align-items: center;
+        }
+        
+        .space-x-4 > * + * {
+            margin-left: 1rem;
+        }
+        
+        .space-x-8 > * + * {
+            margin-left: 2rem;
+        }
+        
+        .h-12 {
+            height: 3rem;
+        }
+        
+        .text-xl {
+            font-size: 1.25rem;
+            line-height: 1.75rem;
+        }
+        
+        .font-bold {
+            font-weight: 700;
+        }
+        
+        .hover\:text-blue-300:hover {
+            color: #93c5fd;
+        }
+        
+        .transition-all {
+            transition-property: all;
+            transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+            transition-duration: 150ms;
+        }
+        
+        .focus\:outline-none:focus {
+            outline: 2px solid transparent;
+            outline-offset: 2px;
+        }
+        
+        .text-2xl {
+            font-size: 1.5rem;
+            line-height: 2rem;
+        }
+        
+        /* Mobile menu styles */
+        .mobile-menu {
+            display: none;
+            width: 100%;
+        }
+        
+        .mobile-menu.open {
+            display: block;
+        }
+        
+        .mobile-menu a {
+            display: block;
+            padding: 1rem 1.5rem;
+            text-align: center;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        /* Responsive styles */
+        @media (min-width: 768px) {
+            .container {
+                max-width: 768px;
+            }
+            
+            .md\:flex {
+                display: flex;
+            }
+            
+            .md\:hidden {
+                display: none;
+            }
+        }
+        
+        @media (min-width: 1024px) {
+            .container {
+                max-width: 1024px;
+            }
+        }
+        
+        @media (min-width: 1280px) {
+            .container {
+                max-width: 1280px;
+            }
+        }
+
+         .hero-gradients {
+            background: linear-gradient(135deg, rgba(4, 11, 30, 0.8) 0%, rgba(47, 54, 70, 0.8) 80%);
+        }
+        
+        .text-white {
+            color: white;
+        }
+        
+        /* Carousel slide styles */
+        .splide__slide {
+            position: relative;
+            height: 96vh;
+            max-height: 800px;
+            min-height: 500px;
+            overflow: hidden;
+        }
+        
+        .splide__slide::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.3);
+            z-index: 1;
+        }
+        
+        .slide-background {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+        }
+        
+        .slide-content {
+            position: relative;
+            z-index: 2;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+        }
+        
+        .text-center {
+            text-align: center;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+        
+        .text-4xl {
+            font-size: 2.25rem;
+            line-height: 2.5rem;
+        }
+        
+        .md\:text-5xl {
+            font-size: 3rem;
+            line-height: 1;
+        }
+        
+        .font-bold {
+            font-weight: 700;
+        }
+        
+        .mb-4 {
+            margin-bottom: 1rem;
+        }
+        
+        .text-xl {
+            font-size: 1.25rem;
+            line-height: 1.75rem;
+        }
+        
+        .mb-8 {
+            margin-bottom: 2rem;
+        }
+        
+        .bg-white {
+            background-color: white;
+        }
+        
+        .text-blue-800 {
+            color: #1e40af;
+        }
+        
+        .px-8 {
+            padding-left: 2rem;
+            padding-right: 2rem;
+        }
+        
+        .py-3 {
+            padding-top: 0.75rem;
+            padding-bottom: 0.75rem;
+        }
+        
+        .rounded-full {
+            border-radius: 9999px;
+        }
+        
+        .font-semibold {
+            font-weight: 600;
+        }
+        
+        .hover\:bg-blue-100:hover {
+            background-color: #dbeafe;
+        }
+        
+        .transition-all {
+            transition: all 0.3s ease;
+        }
+        
+        /* Splide pagination customization */
+        .splide__pagination {
+            bottom: 2rem;
+        }
+        
+        .splide__pagination__page {
+            background: white;
+            opacity: 0.1;
+            width: 12px;
+            height: 12px;
+            margin: 0 6px;
+        }
+        
+        .splide__pagination__page.is-active {
+            opacity: 0.5;
+            transform: scale(1.2);
+            background: #3b82f6;
+        }
+        
+        /* Arrow customization */
+        .splide__arrow {
+            background: rgba(255, 255, 255, 0.8);
+            opacity: 1;
+            width: 3rem;
+            height: 3rem;
+        }
+        
+        .splide__arrow svg {
+            fill: #1e40af;
+            width: 1.5rem;
+            height: 1.5rem;
+        }
+        
+        .splide__arrow:hover {
+            background: white;
+        }
+        
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .splide__slide {
+                height: 80vh;
+                min-height: 400px;
+            }
+            
+            .text-4xl {
+                font-size: 1.75rem;
+            }
+            
+            .text-xl {
+                font-size: 1.1rem;
+            }
+            
+            .px-8 {
+                padding-left: 1.5rem;
+                padding-right: 1.5rem;
+            }
+        }
     </style>
 </head>
 
 <body class="font-sans antialiased text-gray-800">
     <!-- Navigation -->
-    <nav class="bg-blue-900 text-white shadow-lg">
+    <nav class="hero-gradient text-white shadow-lg">
         <div class="container mx-auto px-6 py-3 flex justify-between items-center">
             <div class="flex items-center space-x-4">
                 <img src="img/logo.png" alt="School Logo" class="h-12">
@@ -48,9 +353,17 @@
                 <a href="admissions.html" class="hover:text-blue-300 transition-all">Admissions</a>
                 <a href="contact.html" class="hover:text-blue-300 transition-all">Contact</a>
             </div>
-            <button class="md:hidden focus:outline-none">
+            <button id="menu-toggle" class="md:hidden focus:outline-none">
                 <i class="fas fa-bars text-2xl"></i>
             </button>
+        </div>
+        <!-- Mobile menu -->
+        <div id="mobile-menu" class="mobile-menu md:hidden">
+            <a href="#" class="hover:text-blue-300 transition-all">Home</a>
+            <a href="about.html" class="hover:text-blue-300 transition-all">About</a>
+            <a href="academics.html" class="hover:text-blue-300 transition-all">Academics</a>
+            <a href="admissions.html" class="hover:text-blue-300 transition-all">Admissions</a>
+            <a href="contact.html" class="hover:text-blue-300 transition-all">Contact</a>
         </div>
     </nav>
 
@@ -59,36 +372,44 @@
         <div class="splide__track">
             <ul class="splide__list">
                 <li class="splide__slide">
-                    <div class="hero-gradient h-96 flex items-center">
+                    <img src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"
+                        alt="Students in classroom" class="slide-background">
+                    <div class="slide-content hero-gradients">
                         <div class="container mx-auto px-6 text-white text-center">
                             <h1 class="text-4xl md:text-5xl font-bold mb-4">Excellence in Global Education</h1>
                             <p class="text-xl mb-8">Giving Your Child A Headstart To Greatness</p>
                             <button
-                            
-                                class="bg-white text-blue-800 px-8 py-3 rounded-full font-semibold hover:bg-blue-100 transition-all">Explore
-                                Programs</button>
+                                class="bg-white text-blue-800 px-8 py-3 rounded-full font-semibold hover:bg-blue-100 transition-all">
+                                Explore Programs
+                            </button>
                         </div>
                     </div>
                 </li>
                 <li class="splide__slide">
-                    <div class="hero-gradient h-96 flex items-center">
+                    <img src="https://images.unsplash.com/photo-1571260899304-425eee4c7efc?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"
+                        alt="School science lab" class="slide-background">
+                    <div class="slide-content hero-gradients">
                         <div class="container mx-auto px-6 text-white text-center">
                             <h1 class="text-4xl md:text-5xl font-bold mb-4">State-of-the-Art Facilities</h1>
                             <p class="text-xl mb-8">World-class learning environments for 21st century education</p>
                             <button
-                                class="bg-white text-blue-800 px-8 py-3 rounded-full font-semibold hover:bg-blue-100 transition-all">Virtual
-                                Tour</button>
+                                class="bg-white text-blue-800 px-8 py-3 rounded-full font-semibold hover:bg-blue-100 transition-all">
+                                Virtual Tour
+                            </button>
                         </div>
                     </div>
                 </li>
                 <li class="splide__slide">
-                    <div class="hero-gradient h-96 flex items-center">
+                    <img src="https://images.unsplash.com/photo-1588072432836-e10032774350?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1472&q=80"
+                        alt="Students at graduation" class="slide-background">
+                    <div class="slide-content hero-gradients">
                         <div class="container mx-auto px-6 text-white text-center">
                             <h1 class="text-4xl md:text-5xl font-bold mb-4">Now Accepting Applications</h1>
                             <p class="text-xl mb-8">Join our community of curious minds and future leaders</p>
                             <button
-                                class="bg-white text-blue-800 px-8 py-3 rounded-full font-semibold hover:bg-blue-100 transition-all">Apply
-                                Now</button>
+                                class="bg-white text-blue-800 px-8 py-3 rounded-full font-semibold hover:bg-blue-100 transition-all">
+                                Apply Now
+                            </button>
                         </div>
                     </div>
                 </li>
@@ -290,7 +611,7 @@
                 </div>
             </div>
             <div class="border-t border-blue-800 mt-8 pt-8 text-center text-blue-300 text-sm">
-                <p>© 2023 Quinton Group of Schools. All rights reserved.</p>
+                <p>© 2025 Quinton Group of Schools. All rights reserved.</p>
             </div>
         </div>
     </footer>
@@ -325,6 +646,56 @@
                 observer.observe(card);
             });
         });
+
+        document.addEventListener('DOMContentLoaded', function () {
+                const menuToggle = document.getElementById('menu-toggle');
+                const mobileMenu = document.getElementById('mobile-menu');
+
+                menuToggle.addEventListener('click', function () {
+                    mobileMenu.classList.toggle('open');
+
+                    // Change icon between bars and times
+                    const icon = menuToggle.querySelector('i');
+                    if (mobileMenu.classList.contains('open')) {
+                        icon.classList.remove('fa-bars');
+                        icon.classList.add('fa-times');
+                    } else {
+                        icon.classList.remove('fa-times');
+                        icon.classList.add('fa-bars');
+                    }
+                });
+
+                // Close menu when a link is clicked (useful for single-page applications)
+                mobileMenu.querySelectorAll('a').forEach(link => {
+                    link.addEventListener('click', function () {
+                        mobileMenu.classList.remove('open');
+                        const icon = menuToggle.querySelector('i');
+                        icon.classList.remove('fa-times');
+                        icon.classList.add('fa-bars');
+                    });
+                });
+            });
+
+                    document.addEventListener('DOMContentLoaded', function () {
+                            new Splide('.splide', {
+                                type: 'fade', // Smooth fade transition between slides
+                                rewind: true,  // Return to first slide after last
+                                autoplay: true, // Auto-rotate slides
+                                interval: 5000, // 5 seconds between slides
+                                pauseOnHover: true, // Pause on hover
+                                pauseOnFocus: true, // Pause when focused
+                                arrows: true, // Show navigation arrows
+                                pagination: true, // Show pagination dots
+                                speed: 1000, // Transition speed in ms
+                                cover: true, // Ensure images cover the slide area
+                                heightRatio: 0.6, // Aspect ratio
+                                breakpoints: {
+                                    768: {
+                                        heightRatio: 0.8 // Adjust aspect ratio for mobile
+                                    }
+                                }
+                            }).mount();
+                        })
     </script>
 </body>
 
