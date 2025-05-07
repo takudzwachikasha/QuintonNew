@@ -4,506 +4,678 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Quinton Group of Schools</title>
-    <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Splide Carousel -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css">
+    <title>Quinton Group of Schools - Giving Your Child a Headstart to Greatness</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- Framer Motion -->
-    <script src="https://unpkg.com/framer-motion@10.16.4/dist/framer-motion.js"></script>
+    <!-- Google Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+    <!-- Animate CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
     <link rel="apple-touch-icon" sizes="180x180" href="img/favicon/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="img/favicon/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="img/favicon/favicon-16x16.png">
     <link rel="manifest" href="img/favicon/site.webmanifest">
     <style>
-        .hero-gradient {
-            background: linear-gradient(135deg, #001f3f 0%, #003366 50%, #00509e 100%);
+        :root {
+            --navy-blue: #001F3F;
+            --dark-blue: #003366;
+            --medium-blue: #005B96;
+            --light-blue: #E6F2FF;
+            --accent-blue: #0074D9;
+            --gold: #FFD700;
         }
 
-        .card-hover:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: #333;
+            overflow-x: hidden;
         }
 
-        .transition-all {
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        .display-font {
+            font-family: 'Playfair Display', serif;
+        }
+
+        .bg-navy {
+            background-color: var(--navy-blue) !important;
+        }
+
+        .text-navy {
+            color: var(--navy-blue) !important;
+        }
+
+        .bg-gradient-blue {
+            background: linear-gradient(135deg, var(--navy-blue), var(--dark-blue));
+        }
+
+        .btn-primary {
+            background-color: var(--accent-blue);
+            border-color: var(--accent-blue);
+            padding: 12px 30px;
+            font-weight: 600;
+            letter-spacing: 0.5px;
             transition: all 0.3s ease;
         }
-         /* Base styles */
-        body {
-            margin: 0;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
-        
-        
-        .text-white {
-            color: white;
-        }
-        
-        .shadow-lg {
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-        }
-        
-        .container {
-            width: 100%;
-        }
-        
-        .mx-auto {
-            margin-left: auto;
-            margin-right: auto;
-        }
-        
-        .px-6 {
-            padding-left: 1.5rem;
-            padding-right: 1.5rem;
-        }
-        
-        .py-3 {
-            padding-top: 0.75rem;
-            padding-bottom: 0.75rem;
-        }
-        
-        .flex {
-            display: flex;
-        }
-        
-        .justify-between {
-            justify-content: space-between;
-        }
-        
-        .items-center {
-            align-items: center;
-        }
-        
-        .space-x-4 > * + * {
-            margin-left: 1rem;
-        }
-        
-        .space-x-8 > * + * {
-            margin-left: 2rem;
-        }
-        
-        .h-12 {
-            height: 3rem;
-        }
-        
-        .text-xl {
-            font-size: 1.25rem;
-            line-height: 1.75rem;
-        }
-        
-        .font-bold {
-            font-weight: 700;
-        }
-        
-        .hover\:text-blue-300:hover {
-            color: #93c5fd;
-        }
-        
-        .transition-all {
-            transition-property: all;
-            transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-            transition-duration: 150ms;
-        }
-        
-        .focus\:outline-none:focus {
-            outline: 2px solid transparent;
-            outline-offset: 2px;
-        }
-        
-        .text-2xl {
-            font-size: 1.5rem;
-            line-height: 2rem;
-        }
-        
-        /* Mobile menu styles */
-        .mobile-menu {
-            display: none;
-            width: 100%;
-        }
-        
-        .mobile-menu.open {
-            display: block;
-        }
-        
-        .mobile-menu a {
-            display: block;
-            padding: 1rem 1.5rem;
-            text-align: center;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-        }
-        
-        /* Responsive styles */
-        @media (min-width: 768px) {
-            .container {
-                max-width: 768px;
-            }
-            
-            .md\:flex {
-                display: flex;
-            }
-            
-            .md\:hidden {
-                display: none;
-            }
-        }
-        
-        @media (min-width: 1024px) {
-            .container {
-                max-width: 1024px;
-            }
-        }
-        
-        @media (min-width: 1280px) {
-            .container {
-                max-width: 1280px;
-            }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 116, 217, 0.3);
         }
 
-         .hero-gradients {
-            background: linear-gradient(135deg, rgba(4, 11, 30, 0.8) 0%, rgba(47, 54, 70, 0.8) 80%);
+        .btn-outline-light:hover {
+            color: var(--navy-blue);
         }
-        
-        .text-white {
-            color: white;
-        }
-        
-        /* Carousel slide styles */
-        .splide__slide {
+
+        .section-title {
             position: relative;
-            height: 96vh;
-            max-height: 800px;
-            min-height: 500px;
+            margin-bottom: 3rem;
+        }
+
+        .section-title:after {
+            content: "";
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: var(--accent-blue);
+            border-radius: 2px;
+        }
+
+        .hero-section {
+            background: linear-gradient(rgba(0, 31, 63, 0.85), rgba(0, 31, 63, 0.85)),
+                url('https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            color: white;
+            position: relative;
             overflow: hidden;
         }
-        
-        .splide__slide::before {
-            content: '';
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-motto {
+            color: var(--gold);
+            font-weight: 600;
+            letter-spacing: 1px;
+            margin-bottom: 20px;
+            display: inline-block;
+            position: relative;
+        }
+
+        .hero-motto:after {
+            content: "";
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 50px;
+            height: 2px;
+            background: var(--gold);
+        }
+
+        .hero-badge {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 30px;
+            padding: 10px 20px;
+            display: inline-flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .hero-badge i {
+            color: var(--gold);
+            margin-right: 10px;
+        }
+
+        .carousel-indicators button {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            margin: 0 5px;
+            border: 2px solid transparent;
+            opacity: 0.7;
+            transition: all 0.3s ease;
+        }
+
+        .carousel-indicators button.active {
+            background-color: var(--gold);
+            opacity: 1;
+            transform: scale(1.2);
+        }
+
+        .feature-card {
+            border: none;
+            border-radius: 15px;
+            overflow: hidden;
+            height: 100%;
+            transition: all 0.4s ease;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            position: relative;
+            z-index: 1;
+            background: white;
+        }
+
+        .feature-card:before {
+            content: "";
             position: absolute;
             top: 0;
             left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.3);
-            z-index: 1;
+            right: 0;
+            height: 5px;
+            background: var(--accent-blue);
         }
-        
-        .slide-background {
-            position: absolute;
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .feature-icon {
+            font-size: 2.5rem;
+            color: var(--accent-blue);
+            margin-bottom: 1.5rem;
+        }
+
+        .stats-item {
+            text-align: center;
+            padding: 30px 20px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+        }
+
+        .stats-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .stats-number {
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--accent-blue);
+            margin-bottom: 10px;
+            line-height: 1;
+        }
+
+        .testimonial-card {
+            border: none;
+            border-radius: 15px;
+            background-color: white;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+        }
+
+        .testimonial-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .testimonial-avatar {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            background-color: var(--accent-blue);
+            color: white;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            margin: 0 auto 20px;
+            border: 3px solid white;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .star-rating {
+            color: var(--gold);
+            font-size: 1.1rem;
+            margin-bottom: 15px;
+        }
+
+        .news-card {
+            border: none;
+            border-radius: 15px;
+            overflow: hidden;
+            height: 100%;
+            transition: all 0.4s ease;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+        }
+
+        .news-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .news-img-container {
+            height: 200px;
+            overflow: hidden;
+        }
+
+        .news-img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            object-position: center;
+            transition: transform 0.5s ease;
         }
-        
-        .slide-content {
-            position: relative;
-            z-index: 2;
-            width: 100%;
-            height: 100%;
-            display: flex;
-            align-items: center;
+
+        .news-card:hover .news-img {
+            transform: scale(1.05);
         }
-        
-        .text-center {
-            text-align: center;
+
+        .news-date {
+            color: var(--accent-blue);
+            font-weight: 600;
+            font-size: 0.9rem;
         }
-        
-        .container {
-            width: 100%;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 1.5rem;
-        }
-        
-        .text-4xl {
-            font-size: 2.25rem;
-            line-height: 2.5rem;
-        }
-        
-        .md\:text-5xl {
-            font-size: 3rem;
-            line-height: 1;
-        }
-        
-        .font-bold {
-            font-weight: 700;
-        }
-        
-        .mb-4 {
-            margin-bottom: 1rem;
-        }
-        
-        .text-xl {
-            font-size: 1.25rem;
-            line-height: 1.75rem;
-        }
-        
-        .mb-8 {
-            margin-bottom: 2rem;
-        }
-        
-        .bg-white {
-            background-color: white;
-        }
-        
-        .text-blue-800 {
-            color: #1e40af;
-        }
-        
-        .px-8 {
-            padding-left: 2rem;
-            padding-right: 2rem;
-        }
-        
-        .py-3 {
-            padding-top: 0.75rem;
-            padding-bottom: 0.75rem;
-        }
-        
-        .rounded-full {
-            border-radius: 9999px;
-        }
-        
-        .font-semibold {
+
+        .news-category {
+            display: inline-block;
+            background-color: var(--light-blue);
+            color: var(--accent-blue);
+            padding: 3px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
             font-weight: 600;
         }
-        
-        .hover\:bg-blue-100:hover {
-            background-color: #dbeafe;
+
+        .contact-info-card {
+            border: none;
+            border-radius: 15px;
+            padding: 30px;
+            background: white;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+            height: 100%;
         }
-        
-        .transition-all {
+
+        .contact-info-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .contact-icon {
+            font-size: 2rem;
+            color: var(--accent-blue);
+            margin-bottom: 20px;
+        }
+
+        .footer {
+            background-color: var(--navy-blue);
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .footer:before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: var(--gold);
+        }
+
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        .footer-links a:hover {
+            color: white;
+            padding-left: 5px;
+        }
+
+        .social-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 10px;
             transition: all 0.3s ease;
         }
-        
-        /* Splide pagination customization */
-        .splide__pagination {
-            bottom: 2rem;
+
+        .social-icon:hover {
+            background: var(--accent-blue);
+            transform: translateY(-3px);
         }
-        
-        .splide__pagination__page {
-            background: white;
-            opacity: 0.1;
-            width: 12px;
-            height: 12px;
-            margin: 0 6px;
+
+        .floating-shape {
+            position: absolute;
+            opacity: 0.05;
+            z-index: 0;
         }
-        
-        .splide__pagination__page.is-active {
-            opacity: 0.5;
-            transform: scale(1.2);
-            background: #3b82f6;
+
+        .shape-1 {
+            top: 10%;
+            left: 5%;
+            width: 200px;
+            height: 200px;
+            background: var(--gold);
+            border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+            animation: float 8s ease-in-out infinite;
         }
-        
-        /* Arrow customization */
-        .splide__arrow {
-            background: rgba(255, 255, 255, 0.8);
-            opacity: 1;
-            width: 3rem;
-            height: 3rem;
+
+        .shape-2 {
+            bottom: 10%;
+            right: 5%;
+            width: 150px;
+            height: 150px;
+            background: var(--accent-blue);
+            border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+            animation: float 10s ease-in-out infinite;
         }
-        
-        .splide__arrow svg {
-            fill: #1e40af;
-            width: 1.5rem;
-            height: 1.5rem;
+
+        @keyframes float {
+            0% {
+                transform: translateY(0) rotate(0deg);
+            }
+
+            50% {
+                transform: translateY(-20px) rotate(5deg);
+            }
+
+            100% {
+                transform: translateY(0) rotate(0deg);
+            }
         }
-        
-        .splide__arrow:hover {
-            background: white;
-        }
-        
-        /* Responsive adjustments */
+
         @media (max-width: 768px) {
-            .splide__slide {
-                height: 80vh;
-                min-height: 400px;
+            .hero-section {
+                min-height: 90vh;
+                background-attachment: scroll;
             }
-            
-            .text-4xl {
-                font-size: 1.75rem;
+
+            .display-3 {
+                font-size: 2.5rem;
             }
-            
-            .text-xl {
-                font-size: 1.1rem;
-            }
-            
-            .px-8 {
-                padding-left: 1.5rem;
-                padding-right: 1.5rem;
+
+            .news-img-container {
+                height: 150px;
             }
         }
     </style>
 </head>
 
-<body class="font-sans antialiased text-gray-800">
+<body>
     <!-- Navigation -->
-    <nav class="hero-gradient text-white shadow-lg">
-        <div class="container mx-auto px-6 py-3 flex justify-between items-center">
-            <div class="flex items-center space-x-4">
-                <img src="img/logo.png" alt="School Logo" class="h-12">
-                <span class="text-xl font-bold">Quinton Group of Schools</span>
-            </div>
-            <div class="hidden md:flex space-x-8">
-                <a href="#" class="hover:text-blue-300 transition-all">Home</a>
-                <a href="about.html" class="hover:text-blue-300 transition-all">About</a>
-                <a href="academics.html" class="hover:text-blue-300 transition-all">Academics</a>
-                <a href="admissions.html" class="hover:text-blue-300 transition-all">Admissions</a>
-                <a href="contact.html" class="hover:text-blue-300 transition-all">Contact</a>
-            </div>
-            <button id="menu-toggle" class="md:hidden focus:outline-none">
-                <i class="fas fa-bars text-2xl"></i>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-navy fixed-top py-3">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center" href="#">
+                <i class="fas fa-graduation-cap me-2" style="color: var(--gold);"></i>
+                <span class="fw-bold">Quinton Group of Schools</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
             </button>
-        </div>
-        <!-- Mobile menu -->
-        <div id="mobile-menu" class="mobile-menu md:hidden">
-            <a href="#" class="hover:text-blue-300 transition-all">Home</a>
-            <a href="about.html" class="hover:text-blue-300 transition-all">About</a>
-            <a href="academics.html" class="hover:text-blue-300 transition-all">Academics</a>
-            <a href="admissions.html" class="hover:text-blue-300 transition-all">Admissions</a>
-            <a href="contact.html" class="hover:text-blue-300 transition-all">Contact</a>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.html">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="academics.html">Academics</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="admissions.html">Admissions</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact.html">Contact</a>
+                    </li>
+                    <li class="nav-item ms-lg-3 mt-2 mt-lg-0">
+                        <a class="btn btn-primary" href="#">Apply Now</a>
+                    </li>
+                </ul>
+            </div>
         </div>
     </nav>
 
-    <!-- Hero Carousel -->
-    <section class="splide" aria-label="School Highlights">
-        <div class="splide__track">
-            <ul class="splide__list">
-                <li class="splide__slide">
-                    <img src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"
-                        alt="Students in classroom" class="slide-background">
-                    <div class="slide-content hero-gradients">
-                        <div class="container mx-auto px-6 text-white text-center">
-                            <h1 class="text-4xl md:text-5xl font-bold mb-4">Excellence in Global Education</h1>
-                            <p class="text-xl mb-8">Giving Your Child A Headstart To Greatness</p>
-                            <button
-                                class="bg-white text-blue-800 px-8 py-3 rounded-full font-semibold hover:bg-blue-100 transition-all">
-                                Explore Programs
-                            </button>
-                        </div>
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="floating-shape shape-1"></div>
+        <div class="floating-shape shape-2"></div>
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6 hero-content animate__animated animate__fadeInUp">
+                    <div class="hero-badge animate__animated animate__fadeIn animate__delay-1s">
+                        <i class="fas fa-star"></i>
+                        <span>Established 1998</span>
                     </div>
-                </li>
-                <li class="splide__slide">
-                    <img src="https://images.unsplash.com/photo-1571260899304-425eee4c7efc?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"
-                        alt="School science lab" class="slide-background">
-                    <div class="slide-content hero-gradients">
-                        <div class="container mx-auto px-6 text-white text-center">
-                            <h1 class="text-4xl md:text-5xl font-bold mb-4">State-of-the-Art Facilities</h1>
-                            <p class="text-xl mb-8">World-class learning environments for 21st century education</p>
-                            <button
-                                class="bg-white text-blue-800 px-8 py-3 rounded-full font-semibold hover:bg-blue-100 transition-all">
-                                Virtual Tour
-                            </button>
-                        </div>
-                    </div>
-                </li>
-                <li class="splide__slide">
-                    <img src="https://images.unsplash.com/photo-1588072432836-e10032774350?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1472&q=80"
-                        alt="Students at graduation" class="slide-background">
-                    <div class="slide-content hero-gradients">
-                        <div class="container mx-auto px-6 text-white text-center">
-                            <h1 class="text-4xl md:text-5xl font-bold mb-4">Now Accepting Applications</h1>
-                            <p class="text-xl mb-8">Join our community of curious minds and future leaders</p>
-                            <button
-                                class="bg-white text-blue-800 px-8 py-3 rounded-full font-semibold hover:bg-blue-100 transition-all">
-                                Apply Now
-                            </button>
-                        </div>
-                    </div>
-                </li>
-            </ul>
-        </div>
-    </section>
-
-    <!-- Quick Links Section -->
-    <section class="py-16 bg-gray-50">
-        <div class="container mx-auto px-6">
-            <h2 class="text-3xl font-bold text-center mb-12 text-blue-900">Discover Our School</h2>
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
-                <div class="bg-white rounded-xl shadow-md overflow-hidden transition-all card-hover">
-                    <div class="p-6">
-                        <div class="text-blue-600 text-4xl mb-4">
-                            <i class="fas fa-graduation-cap"></i>
-                        </div>
-                        <h3 class="text-xl font-semibold mb-2 text-blue-900">Academics</h3>
-                        <p class="text-gray-600">Explore our rigorous curriculum and specialized programs.</p>
-                        <a href="academics.html" class="mt-4 inline-block text-blue-600 hover:text-blue-800 font-medium">Learn More
-                            →</a>
+                    <h1 class="display-3 fw-bold mb-4">Excellence in Education</h1>
+                    <p class="hero-motto">Giving Your Child a Headstart to Greatness</p>
+                    <p class="lead mb-5">At Quinton Group of Schools, we nurture curious minds and develop future
+                        leaders through innovative teaching and holistic development.</p>
+                    <div class="d-flex flex-wrap gap-3">
+                        <a href="admissions.html" class="btn btn-primary px-4">Enroll Now</a>
+                        <a href="about.html" class="btn btn-outline-light px-4">Learn More</a>
                     </div>
                 </div>
-                <div class="bg-white rounded-xl shadow-md overflow-hidden transition-all card-hover">
-                    <div class="p-6">
-                        <div class="text-blue-600 text-4xl mb-4">
-                            <i class="fas fa-users"></i>
+                <div class="col-lg-6 d-none d-lg-block animate__animated animate__fadeInRight">
+                    <div class="position-relative" style="z-index: 1;">
+                        <div class="ratio ratio-16x9">
+                            <div class="bg-white rounded-4 overflow-hidden shadow-lg">
+                                <div id="heroCarousel" class="carousel slide h-100" data-bs-ride="carousel">
+                                    <div class="carousel-inner h-100">
+                                        <div class="carousel-item active h-100">
+                                            <img src="https://images.unsplash.com/photo-1546410531-bb4caa6b424d?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
+                                                class="d-block w-100 h-100 object-cover" alt="Students learning">
+                                        </div>
+                                        <div class="carousel-item h-100">
+                                            <img src="https://images.unsplash.com/photo-1588072432836-e10032774350?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
+                                                class="d-block w-100 h-100 object-cover" alt="Science lab">
+                                        </div>
+                                        <div class="carousel-item h-100">
+                                            <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
+                                                class="d-block w-100 h-100 object-cover" alt="Students collaborating">
+                                        </div>
+                                    </div>
+                                    <div class="carousel-indicators" style="bottom: 20px;">
+                                        <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="0"
+                                            class="active"></button>
+                                        <button type="button" data-bs-target="#heroCarousel"
+                                            data-bs-slide-to="1"></button>
+                                        <button type="button" data-bs-target="#heroCarousel"
+                                            data-bs-slide-to="2"></button>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                        <h3 class="text-xl font-semibold mb-2 text-blue-900">Student Life</h3>
-                        <p class="text-gray-600">Vibrant community with diverse extracurricular activities.</p>
-                        <a href="admissions.html" class="mt-4 inline-block text-blue-600 hover:text-blue-800 font-medium">Learn More
-                            →</a>
-                    </div>
-                </div>
-                <div class="bg-white rounded-xl shadow-md overflow-hidden transition-all card-hover">
-                    <div class="p-6">
-                        <div class="text-blue-600 text-4xl mb-4">
-                            <i class="fas fa-door-open"></i>
-                        </div>
-                        <h3 class="text-xl font-semibold mb-2 text-blue-900">Admissions</h3>
-                        <p class="text-gray-600">Start your journey to becoming part of our school family.</p>
-                        <a href="admissions.html" class="mt-4 inline-block text-blue-600 hover:text-blue-800 font-medium">Learn More
-                            →</a>
-                    </div>
-                </div>
-                <div class="bg-white rounded-xl shadow-md overflow-hidden transition-all card-hover">
-                    <div class="p-6">
-                        <div class="text-blue-600 text-4xl mb-4">
-                            <i class="fas fa-calendar-alt"></i>
-                        </div>
-                        <h3 class="text-xl font-semibold mb-2 text-blue-900">Events</h3>
-                        <p class="text-gray-600">See what's happening at our school this month.</p>
-                        <a href="#news" class="mt-4 inline-block text-blue-600 hover:text-blue-800 font-medium">Learn More
-                            →</a>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Featured News Section -->
-    <section id= "news" class="py-16 bg-white">
-        <div class="container mx-auto px-6">
-            <div class="flex justify-between items-center mb-12">
-                <h2 class="text-3xl font-bold text-blue-900">Latest News & Announcements</h2>
-                <a href="#" class="text-blue-600 hover:text-blue-800 font-medium">View All News →</a>
+    <!-- Quick Info Bar -->
+    <section class="bg-primary text-white py-3">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-4 mb-3 mb-md-0">
+                    <div class="d-flex align-items-center">
+                        <i class="fas fa-map-marker-alt me-3 fs-4" style="color: var(--gold);"></i>
+                        <div>
+                            <h6 class="mb-0">Our Location</h6>
+                            <p class="mb-0 small">18361 Rockview West, Chitungwiza, Harare</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-3 mb-md-0">
+                    <div class="d-flex align-items-center">
+                        <i class="fas fa-phone-alt me-3 fs-4" style="color: var(--gold);"></i>
+                        <div>
+                            <h6 class="mb-0">Call Us</h6>
+                            <p class="mb-0 small">0718 598 104 / 0785 998 616</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="d-flex align-items-center">
+                        <i class="fas fa-envelope me-3 fs-4" style="color: var(--gold);"></i>
+                        <div>
+                            <h6 class="mb-0">Email Us</h6>
+                            <p class="mb-0 small">quintonseniorsch@gmail.com</p>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <div class="rounded-xl overflow-hidden shadow-md transition-all card-hover">
-                    <img src="https://via.placeholder.com/400x225" alt="News Image" class="w-full h-48 object-cover">
-                    <div class="p-6">
-                        <span class="text-sm text-blue-600">June 15, 2023</span>
-                        <h3 class="text-xl font-semibold my-2 text-blue-900">School Hosts Minister of Education</h3>
-                        <p class="text-gray-600 mb-4">Our school had the honor of hosting the Minister of Education and the ZBC for tour of the school.</p>
-                        <a href="#" class="text-blue-600 hover:text-blue-800 font-medium">Read More →</a>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="py-5 py-lg-7">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="section-title text-navy fw-bold">Why Choose Quinton?</h2>
+                <p class="lead mx-auto" style="max-width: 700px;">Discover what makes our school community special</p>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-3">
+                    <div class="feature-card card p-4 text-center">
+                        <div class="feature-icon">
+                            <i class="fas fa-user-graduate"></i>
+                        </div>
+                        <h4 class="text-navy fw-bold mb-3">Academic Excellence</h4>
+                        <p>Consistently ranked among top schools in Zimbabwe with a 98% pass rate in national
+                            examinations.</p>
                     </div>
                 </div>
-                <div class="rounded-xl overflow-hidden shadow-md transition-all card-hover">
-                    <img src="https://via.placeholder.com/400x225" alt="News Image" class="w-full h-48 object-cover">
-                    <div class="p-6">
-                        <span class="text-sm text-blue-600">June 8, 2023</span>
-                        <h3 class="text-xl font-semibold my-2 text-blue-900">New Infant School Opening Ceremony</h3>
-                        <p class="text-gray-600 mb-4">State-of-the-art facilities will provide students with
-                            cutting-edge resources for scientific exploration.</p>
-                        <a href="#" class="text-blue-600 hover:text-blue-800 font-medium">Read More →</a>
+                <div class="col-md-6 col-lg-3">
+                    <div class="feature-card card p-4 text-center">
+                        <div class="feature-icon">
+                            <i class="fas fa-chalkboard-teacher"></i>
+                        </div>
+                        <h4 class="text-navy fw-bold mb-3">Expert Faculty</h4>
+                        <p>Highly qualified teachers with an average of 15 years experience, committed to student
+                            success.</p>
                     </div>
                 </div>
-                <div class="rounded-xl overflow-hidden shadow-md transition-all card-hover">
-                    <img src="https://via.placeholder.com/400x225" alt="News Image" class="w-full h-48 object-cover">
-                    <div class="p-6">
-                        <span class="text-sm text-blue-600">May 30, 2023</span>
-                        <h3 class="text-xl font-semibold my-2 text-blue-900">2024 Price Giving Day</h3>
-                        <p class="text-gray-600 mb-4">We took time to recogniz our outstanding learners.</p>
-                        <a href="#" class="text-blue-600 hover:text-blue-800 font-medium">Read More →</a>
+                <div class="col-md-6 col-lg-3">
+                    <div class="feature-card card p-4 text-center">
+                        <div class="feature-icon">
+                            <i class="fas fa-flask"></i>
+                        </div>
+                        <h4 class="text-navy fw-bold mb-3">Modern Facilities</h4>
+                        <p>State-of-the-art laboratories, libraries, and technology resources to enhance learning.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="feature-card card p-4 text-center">
+                        <div class="feature-icon">
+                            <i class="fas fa-heart"></i>
+                        </div>
+                        <h4 class="text-navy fw-bold mb-3">Holistic Development</h4>
+                        <p>Over 30 extracurricular activities to develop talents beyond the classroom.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="py-5 py-lg-7 bg-light">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-6 col-md-3">
+                    <div class="stats-item">
+                        <div class="stats-number">25+</div>
+                        <h5>Years of Excellence</h5>
+                    </div>
+                </div>
+                <div class="col-6 col-md-3">
+                    <div class="stats-item">
+                        <div class="stats-number">98%</div>
+                        <h5>Pass Rate</h5>
+                    </div>
+                </div>
+                <div class="col-6 col-md-3">
+                    <div class="stats-item">
+                        <div class="stats-number">50+</div>
+                        <h5>Qualified Teachers</h5>
+                    </div>
+                </div>
+                <div class="col-6 col-md-3">
+                    <div class="stats-item">
+                        <div class="stats-number">30+</div>
+                        <h5>Extracurriculars</h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Programs Section -->
+    <section class="py-5 py-lg-7">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="section-title text-navy fw-bold">Our Programs</h2>
+                <p class="lead mx-auto" style="max-width: 700px;">Comprehensive education for every stage of development
+                </p>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="card h-100 border-0 shadow-sm">
+                        <div class="card-body p-4 text-center">
+                            <div class="feature-icon">
+                                <i class="fas fa-baby"></i>
+                            </div>
+                            <h3 class="text-navy fw-bold mb-3">Early Years</h3>
+                            <p class="mb-4">A nurturing environment for children ages 3-5 that fosters curiosity and
+                                foundational learning through play-based activities.</p>
+                            <a href="academics.html" class="btn btn-outline-primary">Learn More</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card h-100 border-0 shadow-sm">
+                        <div class="card-body p-4 text-center">
+                            <div class="feature-icon">
+                                <i class="fas fa-book-open"></i>
+                            </div>
+                            <h3 class="text-navy fw-bold mb-3">Primary School</h3>
+                            <p class="mb-4">Grades 1-7 program focusing on core academic skills while encouraging
+                                creativity and independent thinking.</p>
+                            <a href="academics.html" class="btn btn-outline-primary">Learn More</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card h-100 border-0 shadow-sm">
+                        <div class="card-body p-4 text-center">
+                            <div class="feature-icon">
+                                <i class="fas fa-flask"></i>
+                            </div>
+                            <h3 class="text-navy fw-bold mb-3">Secondary School</h3>
+                            <p class="mb-4">Forms 1-6 curriculum preparing students for ZIMSEC and Cambridge
+                                examinations with college readiness programs.</p>
+                            <a href="academics.html" class="btn btn-outline-primary">Learn More</a>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -511,37 +683,185 @@
     </section>
 
     <!-- Testimonials Section -->
-    <section class="py-16 bg-blue-50">
-        <div class="container mx-auto px-6">
-            <h2 class="text-3xl font-bold text-center mb-12 text-blue-900">What Our Community Says</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <div class="bg-white p-8 rounded-xl shadow-md relative">
-                    <div
-                        class="absolute -top-4 -left-4 bg-blue-600 text-white rounded-full w-12 h-12 flex items-center justify-center">
-                        <i class="fas fa-quote-left text-xl"></i>
+    <section class="py-5 py-lg-7 bg-light">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="section-title text-navy fw-bold">What Parents Say</h2>
+                <p class="lead mx-auto" style="max-width: 700px;">Hear from our school community about their experiences
+                </p>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-4">
+                    <div class="testimonial-card card p-4">
+                        <div class="testimonial-avatar">JD</div>
+                        <div class="star-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <p class="mb-4 fst-italic">"The teachers at Quinton go above and beyond to ensure each child's
+                            success. My daughter has flourished academically and socially."</p>
+                        <h5 class="fw-bold mb-1">James Davis</h5>
+                        <p class="text-muted small">Parent of Grade 5 Student</p>
                     </div>
-                    <p class="text-gray-700 mb-6 italic">"The global perspective my child has gained at Quinton 
-                        is unparalleled. The faculty truly nurtures both academic excellence and personal growth."</p>
-                    <div class="flex items-center">
-                        <img src="https://via.placeholder.com/60x60" alt="Parent" class="rounded-full w-12 h-12 mr-4">
-                        <div>
-                            <h4 class="font-semibold text-blue-900">Munyaradzi Chishakwe</h4>
-                            <p class="text-gray-600 text-sm">Parent of Grade 4 Student</p>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="testimonial-card card p-4">
+                        <div class="testimonial-avatar">SM</div>
+                        <div class="star-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <p class="mb-4 fst-italic">"The warm, nurturing environment made the transition to school so
+                            easy for my son. He loves going to school every day!"</p>
+                        <h5 class="fw-bold mb-1">Sarah Miller</h5>
+                        <p class="text-muted small">Parent of Kindergarten Student</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="testimonial-card card p-4">
+                        <div class="testimonial-avatar">RT</div>
+                        <div class="star-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <p class="mb-4 fst-italic">"The college counseling program is exceptional. They've helped my
+                            daughter navigate her options and find her passion."</p>
+                        <h5 class="fw-bold mb-1">Robert Taylor</h5>
+                        <p class="text-muted small">Parent of Grade 10 Student</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- News Section -->
+    <section class="py-5 py-lg-7">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="section-title text-navy fw-bold">Latest News & Events</h2>
+                <p class="lead mx-auto" style="max-width: 700px;">Stay updated with what's happening at Quinton</p>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-4">
+                    <div class="news-card card h-100">
+                        <div class="news-img-container">
+                            <img src="https://images.unsplash.com/photo-1588072432904-843af37f03ed?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
+                                class="news-img" alt="Science fair">
+                        </div>
+                        <div class="card-body">
+                            <div class="d-flex justify-content-between align-items-center mb-3">
+                                <span class="news-date">June 15, 2023</span>
+                                <span class="news-category">Event</span>
+                            </div>
+                            <h5 class="fw-bold mb-3">Annual Science Fair Winners Announced</h5>
+                            <p class="mb-4">Our students showcased incredible projects at this year's science fair, with
+                                Team Quantum taking the top prize for their renewable energy solution.</p>
+                            <a href="#" class="text-primary fw-semibold text-decoration-none">Read more <i
+                                    class="fas fa-arrow-right ms-2"></i></a>
                         </div>
                     </div>
                 </div>
-                <div class="bg-white p-8 rounded-xl shadow-md relative">
-                    <div
-                        class="absolute -top-4 -left-4 bg-blue-600 text-white rounded-full w-12 h-12 flex items-center justify-center">
-                        <i class="fas fa-quote-left text-xl"></i>
-                    </div>
-                    <p class="text-gray-700 mb-6 italic">"This is the education that our government is pushing and advocating.Education 5.0"</p>
-                    <div class="flex items-center">
-                        <img src="https://via.placeholder.com/60x60" alt="Alumni" class="rounded-full w-12 h-12 mr-4">
-                        <div>
-                            <h4 class="font-semibold text-blue-900">Hon. Torerai Moyo</h4>
-                            <p class="text-gray-600 text-sm">Min of Education</p>
+                <div class="col-md-6 col-lg-4">
+                    <div class="news-card card h-100">
+                        <div class="news-img-container">
+                            <img src="https://images.unsplash.com/photo-1541178735493-479c1a27ed24?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
+                                class="news-img" alt="New building">
                         </div>
+                        <div class="card-body">
+                            <div class="d-flex justify-content-between align-items-center mb-3">
+                                <span class="news-date">May 28, 2023</span>
+                                <span class="news-category">Announcement</span>
+                            </div>
+                            <h5 class="fw-bold mb-3">New STEM Center Grand Opening</h5>
+                            <p class="mb-4">We're proud to announce the opening of our state-of-the-art STEM center,
+                                equipped with the latest technology to enhance our science and engineering programs.</p>
+                            <a href="#" class="text-primary fw-semibold text-decoration-none">Read more <i
+                                    class="fas fa-arrow-right ms-2"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="news-card card h-100">
+                        <div class="news-img-container">
+                            <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
+                                class="news-img" alt="Students collaborating">
+                        </div>
+                        <div class="card-body">
+                            <div class="d-flex justify-content-between align-items-center mb-3">
+                                <span class="news-date">May 10, 2023</span>
+                                <span class="news-category">Achievement</span>
+                            </div>
+                            <h5 class="fw-bold mb-3">Quinton Debate Team Wins National Championship</h5>
+                            <p class="mb-4">Our debate team has brought home the national championship trophy after an
+                                impressive undefeated season. Congratulations to all participants!</p>
+                            <a href="#" class="text-primary fw-semibold text-decoration-none">Read more <i
+                                    class="fas fa-arrow-right ms-2"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center mt-5">
+                <a href="#" class="btn btn-outline-primary px-5">View All News</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Info Section -->
+    <section class="py-5 py-lg-7 bg-light">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="section-title text-navy fw-bold">Contact Information</h2>
+                <p class="lead mx-auto" style="max-width: 700px;">We'd love to hear from you. Reach out with any
+                    questions.</p>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="contact-info-card text-center">
+                        <div class="contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <h4 class="text-navy fw-bold mb-3">Our Location</h4>
+                        <address>
+                            18361 Rockview West<br>
+                            Chitungwiza, Harare<br>
+                            Zimbabwe
+                        </address>
+                        <div class="mt-4">
+                            <a href="contact.html#map" class="btn btn-outline-primary">View on Map</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="contact-info-card text-center">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone-alt"></i>
+                        </div>
+                        <h4 class="text-navy fw-bold mb-3">Phone & Email</h4>
+                        <p class="mb-1"><strong>Main Office:</strong> 0718 598 104</p>
+                        <p class="mb-1"><strong>Admissions:</strong> 0785 998 616</p>
+                        <p class="mb-4"><strong>Email:</strong> quintonseniorsch@gmail.com</p>
+                        <a href="contact.html" class="btn btn-outline-primary">Contact Form</a>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="contact-info-card text-center">
+                        <div class="contact-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <h4 class="text-navy fw-bold mb-3">Office Hours</h4>
+                        <p class="mb-1"><strong>Monday-Friday:</strong> 7:30 AM - 4:30 PM</p>
+                        <p class="mb-1"><strong>Saturday:</strong> 9:00 AM - 12:00 PM</p>
+                        <p class="mb-4"><strong>Sunday:</strong> Closed</p>
+                        <a href="contact.html" class="btn btn-outline-primary">Schedule Visit</a>
                     </div>
                 </div>
             </div>
@@ -549,153 +869,107 @@
     </section>
 
     <!-- Call to Action -->
-    <section class="py-16 hero-gradient text-white">
-        <div class="container mx-auto px-6 text-center">
-            <h2 class="text-3xl md:text-4xl font-bold mb-6">Ready to Join Our Learning Community?</h2>
-            <p class="text-xl mb-8 max-w-3xl mx-auto">Discover how Quinton Group of Schools can help your child
-                achieve their full potential in a nurturing, globally-minded environment.</p>
-            <div class="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-4">
-                <button
-                    href= "contact.html" class="bg-white text-blue-800 px-8 py-3 rounded-full font-semibold hover:bg-blue-100 transition-all">Schedule
-                    a Tour</button>
-                <button
-                    href="contact.html" class="border-2 border-white px-8 py-3 rounded-full font-semibold hover:bg-white hover:text-blue-800 transition-all">Contact
-                    Admissions</button>
+    <section class="py-5 py-lg-7 bg-gradient-blue text-white">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8 text-center">
+                    <h2 class="display-5 fw-bold mb-4">Ready to Give Your Child a Headstart to Greatness?</h2>
+                    <p class="lead mb-5">Join our community of learners and discover how Quinton Group of Schools can
+                        help your child reach their full potential.</p>
+                    <div class="d-flex flex-column flex-sm-row justify-content-center gap-3">
+                        <a href="admissions.html" class="btn btn-light btn-lg px-5 fw-bold text-primary">Apply Now</a>
+                        <a href="contact.html" class="btn btn-outline-light btn-lg px-5">Schedule a Visit</a>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer class="bg-blue-900 text-white py-12">
-        <div class="container mx-auto px-6">
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
-                <div>
-                    <img src="img/logo.png" alt="School Logo" class="h-12 mb-4">
-                    <p class="mb-4">Quinton Group of Schools provides world-class education to students from over
-                        Africa.</p>
-                    <div class="flex space-x-4">
-                        <a href="#" class="text-white hover:text-blue-300"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#" class="text-white hover:text-blue-300"><i class="fab fa-twitter"></i></a>
-                        <a href="#" class="text-white hover:text-blue-300"><i class="fab fa-instagram"></i></a>
-                        <a href="#" class="text-white hover:text-blue-300"><i class="fab fa-linkedin-in"></i></a>
+    <footer class="footer pt-5 pb-4">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-lg-4">
+                    <div class="d-flex align-items-center mb-3">
+                        <i class="fas fa-graduation-cap me-2 fs-3" style="color: var(--gold);"></i>
+                        <h3 class="fw-bold mb-0">Quinton Group</h3>
+                    </div>
+                    <p class="text-white-50 mb-4">Giving Your Child a Headstart to Greatness through quality education
+                        since 1998.</p>
+                    <div class="d-flex">
+                        <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-youtube"></i></a>
                     </div>
                 </div>
-                <div>
-                    <h3 class="text-lg font-semibold mb-4">Quick Links</h3>
-                    <ul class="space-y-2">
-                        <li><a href="about.html" class="hover:text-blue-300">About Us</a></li>
-                        <li><a href="academics.html" class="hover:text-blue-300">Academics</a></li>
-                        <li><a href="admissions.html" class="hover:text-blue-300">Admissions</a></li>
-                        <li><a href="#news" class="hover:text-blue-300">News & Events</a></li>
-                    </ul>
+                <div class="col-lg-2 col-md-4">
+                    <h5 class="fw-bold mb-4">Quick Links</h5>
+                    <div class="footer-links">
+                        <a href="index.html">Home</a>
+                        <a href="about.html">About Us</a>
+                        <a href="academics.html">Academics</a>
+                        <a href="admissions.html">Admissions</a>
+                        <a href="contact.html">Contact</a>
+                    </div>
                 </div>
-                <div>
-                    <h3 class="text-lg font-semibold mb-4">Contact Us</h3>
-                    <address class="not-italic">
-                        <p class="mb-2">18361 Rockview West,</p>
-                        <p class="mb-2">Chitungwiza, Harare</p>
-                        <p class="mb-2">Phone: 0718 598 104/ 0785 998 616</p>
-                        <p class="mb-2">Email: quintonseniorsch@gmail.com</p>
+                <div class="col-lg-3 col-md-4">
+                    <h5 class="fw-bold mb-4">Contact Info</h5>
+                    <address class="text-white-50">
+                        <p class="mb-2"><i class="fas fa-map-marker-alt me-2"></i> 18361 Rockview West</p>
+                        <p class="mb-2"><i class="fas fa-city me-2"></i> Chitungwiza, Harare</p>
+                        <p class="mb-2"><i class="fas fa-phone me-2"></i> 0718 598 104 / 0785 998 616</p>
+                        <p class="mb-0"><i class="fas fa-envelope me-2"></i> quintonseniorsch@gmail.com</p>
                     </address>
                 </div>
-                <div>
-                    <h3 class="text-lg font-semibold mb-4">Newsletter</h3>
-                    <p class="mb-4">Subscribe to receive updates and school news.</p>
-                    <form class="flex">
-                        <input type="email" placeholder="Your email"
-                            class="px-4 py-2 w-full rounded-l focus:outline-none text-gray-800">
-                        <button type="submit" class="bg-blue-600 px-4 py-2 rounded-r hover:bg-blue-700 transition-all">
-                            <i class="fas fa-paper-plane"></i>
-                        </button>
+                <div class="col-lg-3 col-md-4">
+                    <h5 class="fw-bold mb-4">Newsletter</h5>
+                    <p class="text-white-50 mb-3">Subscribe to our newsletter for the latest news and updates.</p>
+                    <form class="mb-3">
+                        <div class="input-group">
+                            <input type="email" class="form-control" placeholder="Your email">
+                            <button class="btn btn-primary" type="submit">Subscribe</button>
+                        </div>
                     </form>
                 </div>
             </div>
-            <div class="border-t border-blue-800 mt-8 pt-8 text-center text-blue-300 text-sm">
-                <p>© 2025 Quinton Group of Schools. All rights reserved.</p>
+            <hr class="my-4 bg-white-10">
+            <div class="row">
+                <div class="col-md-6 text-center text-md-start">
+                    <p class="mb-0 text-white-50">&copy;
+                        <script>document.write(new Date().getFullYear())</script> Quinton Group of Schools. All rights
+                        reserved.
+                    </p>
+                </div>
+                <div class="col-md-6 text-center text-md-end">
+                    <a href="#" class="text-white-50 me-3">Privacy Policy</a>
+                    <a href="#" class="text-white-50">Terms of Service</a>
+                </div>
             </div>
         </div>
     </footer>
 
-    <!-- Splide JS -->
-    <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/js/splide.min.js"></script>
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script>
+        // Initialize animations when elements come into view
         document.addEventListener('DOMContentLoaded', function () {
-            new Splide('.splide', {
-                type: 'loop',
-                autoplay: true,
-                interval: 5000,
-                pauseOnHover: false,
-                arrows: false,
-                pagination: false
-            }).mount();
+            const animateElements = document.querySelectorAll('.feature-card, .stats-item, .testimonial-card, .news-card, .contact-info-card');
 
-            // Simple animation for cards on scroll
             const observer = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
-                        entry.target.style.opacity = 1;
-                        entry.target.style.transform = 'translateY(0)';
+                        entry.target.classList.add('animate__animated', 'animate__fadeInUp');
+                        observer.unobserve(entry.target);
                     }
                 });
             }, { threshold: 0.1 });
 
-            document.querySelectorAll('.card-hover').forEach(card => {
-                card.style.opacity = 0;
-                card.style.transform = 'translateY(20px)';
-                card.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
-                observer.observe(card);
+            animateElements.forEach(element => {
+                observer.observe(element);
             });
         });
-
-        document.addEventListener('DOMContentLoaded', function () {
-                const menuToggle = document.getElementById('menu-toggle');
-                const mobileMenu = document.getElementById('mobile-menu');
-
-                menuToggle.addEventListener('click', function () {
-                    mobileMenu.classList.toggle('open');
-
-                    // Change icon between bars and times
-                    const icon = menuToggle.querySelector('i');
-                    if (mobileMenu.classList.contains('open')) {
-                        icon.classList.remove('fa-bars');
-                        icon.classList.add('fa-times');
-                    } else {
-                        icon.classList.remove('fa-times');
-                        icon.classList.add('fa-bars');
-                    }
-                });
-
-                // Close menu when a link is clicked (useful for single-page applications)
-                mobileMenu.querySelectorAll('a').forEach(link => {
-                    link.addEventListener('click', function () {
-                        mobileMenu.classList.remove('open');
-                        const icon = menuToggle.querySelector('i');
-                        icon.classList.remove('fa-times');
-                        icon.classList.add('fa-bars');
-                    });
-                });
-            });
-
-                    document.addEventListener('DOMContentLoaded', function () {
-                            new Splide('.splide', {
-                                type: 'fade', // Smooth fade transition between slides
-                                rewind: true,  // Return to first slide after last
-                                autoplay: true, // Auto-rotate slides
-                                interval: 5000, // 5 seconds between slides
-                                pauseOnHover: true, // Pause on hover
-                                pauseOnFocus: true, // Pause when focused
-                                arrows: true, // Show navigation arrows
-                                pagination: true, // Show pagination dots
-                                speed: 1000, // Transition speed in ms
-                                cover: true, // Ensure images cover the slide area
-                                heightRatio: 0.6, // Aspect ratio
-                                breakpoints: {
-                                    768: {
-                                        heightRatio: 0.8 // Adjust aspect ratio for mobile
-                                    }
-                                }
-                            }).mount();
-                        })
     </script>
 </body>
 

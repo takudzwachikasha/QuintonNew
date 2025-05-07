@@ -4,262 +4,483 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Us | Quinton Group of Schools</title>
-    <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
+    <title>About Us - Quinton Group of Schools</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="apple-touch-icon" sizes="180x180" href="img/favicon/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="img/favicon/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="img/favicon/favicon-16x16.png">
-    <link rel="manifest" href="img/favicon/site.webmanifest">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
     <style>
-        .hero-gradient {
-            background: linear-gradient(135deg, #001f3f 0%, #003366 50%, #00509e 100%);
+        :root {
+            --navy-blue: #001F3F;
+            --dark-blue: #003366;
+            --medium-blue: #005B96;
+            --light-blue: #E6F2FF;
+            --accent-blue: #0074D9;
         }
 
-        .card-hover:hover {
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: #333;
+        }
+
+        .bg-navy {
+            background-color: var(--navy-blue) !important;
+        }
+
+        .text-navy {
+            color: var(--navy-blue) !important;
+        }
+
+        .btn-primary {
+            background-color: var(--accent-blue);
+            border-color: var(--accent-blue);
+        }
+
+        .section-title {
+            position: relative;
+            margin-bottom: 3rem;
+        }
+
+        .section-title:after {
+            content: "";
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: var(--accent-blue);
+        }
+
+        .about-hero {
+            background: linear-gradient(rgba(0, 31, 63, 0.8), rgba(0, 31, 63, 0.8)),
+                url('https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            min-height: 60vh;
+            display: flex;
+            align-items: center;
+            color: white;
+        }
+
+        .mission-card {
+            border-left: 5px solid var(--accent-blue);
+            transition: all 0.3s ease;
+        }
+
+        .mission-card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .value-card {
+            border-radius: 10px;
+            transition: all 0.3s ease;
+            height: 100%;
+        }
+
+        .value-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .value-icon {
+            font-size: 2.5rem;
+            color: var(--accent-blue);
+            margin-bottom: 1rem;
+        }
+
+        .timeline {
+            position: relative;
+            padding-left: 50px;
+        }
+
+        .timeline:before {
+            content: "";
+            position: absolute;
+            left: 15px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: var(--accent-blue);
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 30px;
+        }
+
+        .timeline-item:before {
+            content: "";
+            position: absolute;
+            left: -38px;
+            top: 5px;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: var(--accent-blue);
+            border: 4px solid white;
+        }
+
+        .contact-card {
+            border-radius: 10px;
+            transition: all 0.3s ease;
+        }
+
+        .contact-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .contact-icon {
+            font-size: 1.5rem;
+            color: var(--accent-blue);
+            margin-right: 10px;
+        }
+
+        footer a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        footer a:hover {
+            color: white;
+            padding-left: 5px;
         }
     </style>
 </head>
 
-<body class="font-sans antialiased text-gray-800">
-    <!-- Navigation (Matches Homepage) -->
-    <nav class="bg-blue-900 text-white shadow-lg">
-        <div class="container mx-auto px-6 py-3 flex justify-between items-center">
-            <div class="flex items-center space-x-4">
-                <img src="img/logo.png" alt="School Logo" class="h-12">
-                <span class="text-xl font-bold">Quinton Group of Schools</span>
-            </div>
-            <div class="hidden md:flex space-x-8">
-                <a href="index.html" class="hover:text-blue-300">Home</a>
-                <a href="about.html" class="text-blue-300 font-medium">About</a>
-                <a href="#" class="hover:text-blue-300">Academics</a>
-                <a href="#" class="hover:text-blue-300">Campuses</a>
-                <a href="#" class="hover:text-blue-300">Contact</a>
-            </div>
-            <button class="md:hidden focus:outline-none">
-                <i class="fas fa-bars text-2xl"></i>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-navy fixed-top py-3">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center" href="#">
+                <i class="fas fa-graduation-cap me-2" style="color: #64B5F6;"></i>
+                <span class="fw-bold">Quinton Group of Schools</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
             </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="about.html">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Academics</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Admissions</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Contact</a>
+                    </li>
+                    <li class="nav-item ms-lg-3 mt-2 mt-lg-0">
+                        <a class="btn btn-primary px-4" href="#">Apply Now</a>
+                    </li>
+                </ul>
+            </div>
         </div>
     </nav>
 
     <!-- Hero Section -->
-    <section class="hero-gradient py-20 text-white">
-        <div class="container mx-auto px-6 text-center">
-            <h1 class="text-4xl md:text-5xl font-bold mb-6">About Quinton Group of Schools</h1>
-            <p class="text-xl max-w-3xl mx-auto">A legacy of excellence in education since 1985, nurturing future
-                leaders across our global campuses.</p>
+    <section class="about-hero">
+        <div class="container py-5">
+            <div class="row">
+                <div class="col-lg-8 mx-auto text-center">
+                    <h1 class="display-4 fw-bold mb-4">About Quinton Group of Schools</h1>
+                    <p class="lead mb-0">Giving Your Child a Headstart to Greatness</p>
+                </div>
+            </div>
         </div>
     </section>
 
-    <!-- Mission & Values -->
-    <section class="py-16 bg-white">
-        <div class="container mx-auto px-6">
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-                <div>
-                    <h2 class="text-3xl font-bold text-blue-900 mb-6">Our Mission</h2>
-                    <p class="text-gray-700 mb-6 text-lg">To provide a transformative education that empowers students
-                        to excel academically, think critically, and contribute meaningfully to a rapidly evolving
-                        world.</p>
-                    <div class="bg-blue-50 p-6 rounded-lg border-l-4 border-blue-600">
-                        <h3 class="text-xl font-semibold text-blue-900 mb-3">Our Core Values</h3>
-                        <ul class="space-y-3">
-                            <li class="flex items-start">
-                                <i class="fas fa-check-circle text-blue-600 mt-1 mr-3"></i>
-                                <span>Integrity and ethical leadership</span>
-                            </li>
-                            <li class="flex items-start">
-                                <i class="fas fa-check-circle text-blue-600 mt-1 mr-3"></i>
-                                <span>Innovation in learning</span>
-                            </li>
-                            <li class="flex items-start">
-                                <i class="fas fa-check-circle text-blue-600 mt-1 mr-3"></i>
-                                <span>Global citizenship</span>
-                            </li>
-                            <li class="flex items-start">
-                                <i class="fas fa-check-circle text-blue-600 mt-1 mr-3"></i>
-                                <span>Inclusive community</span>
-                            </li>
-                        </ul>
+    <!-- About Section -->
+    <section class="py-5 py-lg-7">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6 mb-5 mb-lg-0">
+                    <h2 class="section-title text-navy fw-bold">Our Story</h2>
+                    <p class="lead mb-4">Founded in 1998, Quinton Group of Schools has been a beacon of educational
+                        excellence in Chitungwiza for over two decades.</p>
+                    <p class="mb-4">What began as a small neighborhood school has grown into a comprehensive educational
+                        institution serving students from early childhood through secondary education. Our commitment to
+                        academic rigor, character development, and community engagement has made us one of the most
+                        respected schools in the region.</p>
+                    <p class="mb-5">Our motto, "Giving Your Child a Headstart to Greatness," reflects our belief that
+                        every child deserves access to quality education that prepares them for success in an
+                        increasingly complex world.</p>
+                    <a href="#" class="btn btn-primary px-4">Meet Our Team</a>
+                </div>
+                <div class="col-lg-6">
+                    <img src="https://images.unsplash.com/photo-1606761568499-6d2451b23c66?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
+                        alt="School building" class="img-fluid rounded shadow-lg">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mission & Vision -->
+    <section class="py-5 py-lg-7 bg-light">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="section-title text-navy fw-bold">Our Mission & Vision</h2>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-6">
+                    <div class="mission-card card h-100 p-4">
+                        <div class="card-body">
+                            <h3 class="text-navy fw-bold mb-4"><i class="fas fa-bullseye me-2"></i> Our Mission</h3>
+                            <p class="mb-0">To provide a transformative educational experience that empowers students
+                                with knowledge, skills, and values to excel academically, contribute meaningfully to
+                                society, and pursue their dreams with confidence and integrity.</p>
+                        </div>
                     </div>
                 </div>
-                <div class="rounded-xl overflow-hidden shadow-xl">
-                    <img src="https://via.placeholder.com/600x400" alt="Students at Quinton School"
-                        class="w-full h-auto">
+                <div class="col-md-6">
+                    <div class="mission-card card h-100 p-4">
+                        <div class="card-body">
+                            <h3 class="text-navy fw-bold mb-4"><i class="fas fa-eye me-2"></i> Our Vision</h3>
+                            <p class="mb-0">To be recognized as a premier educational institution that develops
+                                innovative leaders and critical thinkers who will shape a better future for Zimbabwe and
+                                the global community.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Core Values -->
+    <section class="py-5 py-lg-7">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="section-title text-navy fw-bold">Our Core Values</h2>
+                <p class="lead mx-auto" style="max-width: 700px;">These principles guide everything we do at Quinton
+                    Group of Schools</p>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-3">
+                    <div class="value-card card h-100 p-4 text-center">
+                        <div class="card-body">
+                            <div class="value-icon">
+                                <i class="fas fa-gem"></i>
+                            </div>
+                            <h4 class="text-navy fw-bold mb-3">Excellence</h4>
+                            <p class="mb-0">We strive for the highest standards in all aspects of education and school
+                                life.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="value-card card h-100 p-4 text-center">
+                        <div class="card-body">
+                            <div class="value-icon">
+                                <i class="fas fa-hand-holding-heart"></i>
+                            </div>
+                            <h4 class="text-navy fw-bold mb-3">Integrity</h4>
+                            <p class="mb-0">We uphold honesty, fairness, and ethical behavior in all our actions.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="value-card card h-100 p-4 text-center">
+                        <div class="card-body">
+                            <div class="value-icon">
+                                <i class="fas fa-users"></i>
+                            </div>
+                            <h4 class="text-navy fw-bold mb-3">Community</h4>
+                            <p class="mb-0">We foster a supportive environment where everyone feels valued and
+                                respected.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="value-card card h-100 p-4 text-center">
+                        <div class="card-body">
+                            <div class="value-icon">
+                                <i class="fas fa-lightbulb"></i>
+                            </div>
+                            <h4 class="text-navy fw-bold mb-3">Innovation</h4>
+                            <p class="mb-0">We embrace creativity and forward-thinking approaches to education.</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- History Timeline -->
-    <section class="py-16 bg-gray-50">
-        <div class="container mx-auto px-6">
-            <h2 class="text-3xl font-bold text-center text-blue-900 mb-12">Our History</h2>
-            <div class="relative max-w-3xl mx-auto">
-                <!-- Timeline Item -->
-                <div class="mb-12 relative pl-16">
-                    <div
-                        class="absolute left-0 top-1 w-8 h-8 rounded-full bg-blue-600 flex items-center justify-center text-white font-bold">
-                        1985</div>
-                    <div class="bg-white p-6 rounded-lg shadow-md">
-                        <h3 class="text-xl font-semibold text-blue-900 mb-2">Foundation of Quinton Academy</h3>
-                        <p class="text-gray-600">Established in London as a single-campus institution focusing on STEM
-                            education.</p>
-                    </div>
-                </div>
-                <!-- Timeline Item -->
-                <div class="mb-12 relative pl-16">
-                    <div
-                        class="absolute left-0 top-1 w-8 h-8 rounded-full bg-blue-600 flex items-center justify-center text-white font-bold">
-                        2002</div>
-                    <div class="bg-white p-6 rounded-lg shadow-md">
-                        <h3 class="text-xl font-semibold text-blue-900 mb-2">First International Campus</h3>
-                        <p class="text-gray-600">Expanded to Dubai with a flagship campus offering IB and British
-                            curricula.</p>
-                    </div>
-                </div>
-                <!-- Timeline Item -->
-                <div class="mb-12 relative pl-16">
-                    <div
-                        class="absolute left-0 top-1 w-8 h-8 rounded-full bg-blue-600 flex items-center justify-center text-white font-bold">
-                        2015</div>
-                    <div class="bg-white p-6 rounded-lg shadow-md">
-                        <h3 class="text-xl font-semibold text-blue-900 mb-2">Global Recognition</h3>
-                        <p class="text-gray-600">Ranked among the top 100 international schools by Education World
-                            Magazine.</p>
-                    </div>
-                </div>
-                <!-- Timeline Item -->
-                <div class="relative pl-16">
-                    <div
-                        class="absolute left-0 top-1 w-8 h-8 rounded-full bg-blue-600 flex items-center justify-center text-white font-bold">
-                        2023</div>
-                    <div class="bg-white p-6 rounded-lg shadow-md">
-                        <h3 class="text-xl font-semibold text-blue-900 mb-2">Present Day</h3>
-                        <p class="text-gray-600">12 campuses worldwide, 10,000+ students, and a network of 30,000+
-                            alumni.</p>
+    <section class="py-5 py-lg-7 bg-light">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="section-title text-navy fw-bold">Our Journey</h2>
+            </div>
+            <div class="row">
+                <div class="col-lg-8 mx-auto">
+                    <div class="timeline">
+                        <div class="timeline-item">
+                            <h4 class="text-navy fw-bold">1998 - Humble Beginnings</h4>
+                            <p>Quinton Group of Schools was founded with just 35 students in a small building in
+                                Chitungwiza, offering primary education to the local community.</p>
+                        </div>
+                        <div class="timeline-item">
+                            <h4 class="text-navy fw-bold">2005 - First Expansion</h4>
+                            <p>We opened our secondary school division in response to growing demand from parents who
+                                wanted their children to continue with our educational approach.</p>
+                        </div>
+                        <div class="timeline-item">
+                            <h4 class="text-navy fw-bold">2012 - New Campus</h4>
+                            <p>We moved to our current location at 18361 Rockview West, featuring modern classrooms,
+                                science labs, and sports facilities.</p>
+                        </div>
+                        <div class="timeline-item">
+                            <h4 class="text-navy fw-bold">2018 - 20th Anniversary</h4>
+                            <p>Celebrated two decades of educational excellence with over 1,200 alumni making impacts in
+                                various fields across Zimbabwe and beyond.</p>
+                        </div>
+                        <div class="timeline-item">
+                            <h4 class="text-navy fw-bold">2023 - Present Day</h4>
+                            <p>Now serving over 800 students annually with a reputation for academic excellence and
+                                holistic development.</p>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Leadership Team -->
-    <section class="py-16 bg-white">
-        <div class="container mx-auto px-6">
-            <h2 class="text-3xl font-bold text-center text-blue-900 mb-12">Our Leadership</h2>
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Team Member -->
-                <div class="bg-white rounded-lg shadow-md overflow-hidden transition-all card-hover">
-                    <img src="https://via.placeholder.com/400x300" alt="Dr. Sarah Quinton"
-                        class="w-full h-64 object-cover">
-                    <div class="p-6">
-                        <h3 class="text-xl font-semibold text-blue-900">Dr. Sarah Quinton</h3>
-                        <p class="text-blue-600 mb-3">Founder & Chairperson</p>
-                        <p class="text-gray-600">PhD in Education from Oxford, 40+ years of experience in pedagogical
-                            innovation.</p>
-                    </div>
-                </div>
-                <!-- Team Member -->
-                <div class="bg-white rounded-lg shadow-md overflow-hidden transition-all card-hover">
-                    <img src="https://via.placeholder.com/400x300" alt="James Wilson" class="w-full h-64 object-cover">
-                    <div class="p-6">
-                        <h3 class="text-xl font-semibold text-blue-900">James Wilson</h3>
-                        <p class="text-blue-600 mb-3">Chief Executive Officer</p>
-                        <p class="text-gray-600">Former head of the International Schools Association, specializing in
-                            global education systems.</p>
-                    </div>
-                </div>
-                <!-- Team Member -->
-                <div class="bg-white rounded-lg shadow-md overflow-hidden transition-all card-hover">
-                    <img src="https://via.placeholder.com/400x300" alt="Dr. Priya Patel"
-                        class="w-full h-64 object-cover">
-                    <div class="p-6">
-                        <h3 class="text-xl font-semibold text-blue-900">Dr. Priya Patel</h3>
-                        <p class="text-blue-600 mb-3">Director of Academics</p>
-                        <p class="text-gray-600">Curriculum designer with expertise in multicultural learning
-                            environments.</p>
+    <!-- Contact Info -->
+    <section class="py-5 py-lg-7">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="section-title text-navy fw-bold">Contact Information</h2>
+                <p class="lead mx-auto" style="max-width: 700px;">We'd love to hear from you. Here's how you can reach
+                    us.</p>
+            </div>
+            <div class="row g-4 justify-content-center">
+                <div class="col-md-8 col-lg-6">
+                    <div class="contact-card card p-4">
+                        <div class="card-body">
+                            <div class="d-flex align-items-start mb-4">
+                                <i class="fas fa-map-marker-alt contact-icon mt-1"></i>
+                                <div>
+                                    <h5 class="fw-bold mb-2">Address</h5>
+                                    <p class="mb-0">18361 Rockview West,<br>Chitungwiza, Harare</p>
+                                </div>
+                            </div>
+                            <div class="d-flex align-items-start mb-4">
+                                <i class="fas fa-phone-alt contact-icon mt-1"></i>
+                                <div>
+                                    <h5 class="fw-bold mb-2">Phone</h5>
+                                    <p class="mb-0">0718 598 104<br>0785 998 616</p>
+                                </div>
+                            </div>
+                            <div class="d-flex align-items-start">
+                                <i class="fas fa-envelope contact-icon mt-1"></i>
+                                <div>
+                                    <h5 class="fw-bold mb-2">Email</h5>
+                                    <p class="mb-0">quintonseniorsch@gmail.com</p>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Global Campuses -->
-    <section class="py-16 bg-blue-50">
-        <div class="container mx-auto px-6">
-            <h2 class="text-3xl font-bold text-center text-blue-900 mb-12">Our Global Presence</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                <div class="bg-white p-6 rounded-lg shadow-sm text-center">
-                    <i class="fas fa-school text-4xl text-blue-600 mb-4"></i>
-                    <h3 class="text-xl font-semibold mb-2">London, UK</h3>
-                    <p class="text-gray-600">Flagship campus since 1985</p>
-                </div>
-                <div class="bg-white p-6 rounded-lg shadow-sm text-center">
-                    <i class="fas fa-school text-4xl text-blue-600 mb-4"></i>
-                    <h3 class="text-xl font-semibold mb-2">Dubai, UAE</h3>
-                    <p class="text-gray-600">IB World School since 2002</p>
-                </div>
-                <div class="bg-white p-6 rounded-lg shadow-sm text-center">
-                    <i class="fas fa-school text-4xl text-blue-600 mb-4"></i>
-                    <h3 class="text-xl font-semibold mb-2">Singapore</h3>
-                    <p class="text-gray-600">STEM-focused since 2010</p>
-                </div>
-                <div class="bg-white p-6 rounded-lg shadow-sm text-center">
-                    <i class="fas fa-school text-4xl text-blue-600 mb-4"></i>
-                    <h3 class="text-xl font-semibold mb-2">Toronto, Canada</h3>
-                    <p class="text-gray-600">Bilingual program campus</p>
+    <!-- Call to Action -->
+    <section class="py-5 py-lg-7 text-white"
+        style="background: linear-gradient(135deg, var(--navy-blue), var(--dark-blue));">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8 text-center">
+                    <h2 class="display-5 fw-bold mb-4">Ready to Join Our Community?</h2>
+                    <p class="lead mb-5">Discover how Quinton Group of Schools can give your child a headstart to
+                        greatness.</p>
+                    <div class="d-flex flex-column flex-sm-row justify-content-center gap-3">
+                        <a href="#" class="btn btn-light btn-lg px-5 fw-bold text-primary">Apply Now</a>
+                        <a href="#" class="btn btn-outline-light btn-lg px-5">Schedule a Visit</a>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Footer (Matches Homepage) -->
-    <footer class="bg-blue-900 text-white py-12">
-        <div class="container mx-auto px-6">
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
-                <div>
-                    <img src="img/logo.png" alt="School Logo" class="h-12 mb-4">
-                    <p class="mb-4">Quinton Group of Schools – Educating global citizens since 1985.</p>
-                    <div class="flex space-x-4">
-                        <a href="#" class="text-white hover:text-blue-300"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#" class="text-white hover:text-blue-300"><i class="fab fa-twitter"></i></a>
-                        <a href="#" class="text-white hover:text-blue-300"><i class="fab fa-linkedin-in"></i></a>
+    <!-- Footer -->
+    <footer class="bg-navy text-white py-5">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-lg-3">
+                    <div class="d-flex align-items-center mb-3">
+                        <i class="fas fa-graduation-cap me-2 fs-3" style="color: #64B5F6;"></i>
+                        <h3 class="fw-bold mb-0">Quinton Group</h3>
+                    </div>
+                    <p class="text-white-50 mb-4">Giving Your Child a Headstart to Greatness</p>
+                    <div class="d-flex gap-3">
+                        <a href="#" class="text-white-50"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="text-white-50"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="text-white-50"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="text-white-50"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" class="text-white-50"><i class="fab fa-youtube"></i></a>
                     </div>
                 </div>
-                <div>
-                    <h3 class="text-lg font-semibold mb-4">Quick Links</h3>
-                    <ul class="space-y-2">
-                        <li><a href="index.html" class="hover:text-blue-300">Home</a></li>
-                        <li><a href="about.html" class="hover:text-blue-300">About Us</a></li>
-                        <li><a href="#" class="hover:text-blue-300">Admissions</a></li>
-                        <li><a href="#" class="hover:text-blue-300">Careers</a></li>
+                <div class="col-lg-3">
+                    <h5 class="fw-bold mb-4">Quick Links</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="index.html">Home</a></li>
+                        <li class="mb-2"><a href="about.html">About</a></li>
+                        <li class="mb-2"><a href="#">Academics</a></li>
+                        <li class="mb-2"><a href="#">Admissions</a></li>
+                        <li class="mb-2"><a href="#">Contact</a></li>
                     </ul>
                 </div>
-                <div>
-                    <h3 class="text-lg font-semibold mb-4">Contact</h3>
-                    <p class="mb-2"><i class="fas fa-map-marker-alt mr-2"></i> 123 Education Blvd, London, UK</p>
-                    <p class="mb-2"><i class="fas fa-phone mr-2"></i> +44 20 7946 0958</p>
-                    <p class="mb-2"><i class="fas fa-envelope mr-2"></i> info@quitonschools.com</p>
+                <div class="col-lg-3">
+                    <h5 class="fw-bold mb-4">Contact Us</h5>
+                    <address class="text-white-50">
+                        <p class="mb-2"><i class="fas fa-map-marker-alt me-2"></i> 18361 Rockview West</p>
+                        <p class="mb-2"><i class="fas fa-city me-2"></i> Chitungwiza, Harare</p>
+                        <p class="mb-2"><i class="fas fa-phone me-2"></i> 0718 598 104 / 0785 998 616</p>
+                        <p class="mb-0"><i class="fas fa-envelope me-2"></i> quintonseniorsch@gmail.com</p>
+                    </address>
                 </div>
-                <div>
-                    <h3 class="text-lg font-semibold mb-4">Newsletter</h3>
-                    <form class="flex">
-                        <input type="email" placeholder="Your email" class="px-4 py-2 w-full rounded-l text-gray-800">
-                        <button class="bg-blue-600 px-4 py-2 rounded-r hover:bg-blue-700">
-                            <i class="fas fa-paper-plane"></i>
-                        </button>
+                <div class="col-lg-3">
+                    <h5 class="fw-bold mb-4">Newsletter</h5>
+                    <p class="text-white-50 mb-3">Subscribe to our newsletter for the latest news and updates.</p>
+                    <form class="mb-3">
+                        <div class="input-group">
+                            <input type="email" class="form-control" placeholder="Your email">
+                            <button class="btn btn-primary" type="submit">Subscribe</button>
+                        </div>
                     </form>
                 </div>
             </div>
-            <div class="border-t border-blue-800 mt-8 pt-8 text-center text-blue-300">
-                <p>© 2023 Quinton Group of Schools. All rights reserved.</p>
+            <hr class="my-4 bg-white-10">
+            <div class="row">
+                <div class="col-md-6 text-center text-md-start">
+                    <p class="mb-0 text-white-50">&copy;
+                        <script>document.write(new Date().getFullYear())</script> Quinton Group of Schools. All rights
+                        reserved.
+                    </p>
+                </div>
+                <div class="col-md-6 text-center text-md-end">
+                    <a href="#" class="text-white-50 me-3">Privacy Policy</a>
+                    <a href="#" class="text-white-50">Terms of Service</a>
+                </div>
             </div>
         </div>
-    </footer>`
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 
 </html>

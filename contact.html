@@ -4,268 +4,550 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact Us | Quinton Group of Schools</title>
-    <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Contact Us - Quinton Group of Schools</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- Google Maps Embed API (Replace API_KEY with your own) -->
-    <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&libraries=places"></script>
-    <link rel="apple-touch-icon" sizes="180x180" href="img/favicon/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="img/favicon/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="img/favicon/favicon-16x16.png">
-    <link rel="manifest" href="img/favicon/site.webmanifest">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
     <style>
-        .hero-gradient {
-            background: linear-gradient(135deg, #001f3f 0%, #003366 50%, #00509e 100%);
+        :root {
+            --navy-blue: #001F3F;
+            --dark-blue: #003366;
+            --medium-blue: #005B96;
+            --light-blue: #E6F2FF;
+            --accent-blue: #0074D9;
         }
 
-        .input-focus:focus {
-            border-color: #2563eb;
-            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.2);
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: #333;
+        }
+
+        .bg-navy {
+            background-color: var(--navy-blue) !important;
+        }
+
+        .text-navy {
+            color: var(--navy-blue) !important;
+        }
+
+        .btn-primary {
+            background-color: var(--accent-blue);
+            border-color: var(--accent-blue);
+        }
+
+        .section-title {
+            position: relative;
+            margin-bottom: 3rem;
+        }
+
+        .section-title:after {
+            content: "";
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: var(--accent-blue);
+        }
+
+        .contact-hero {
+            background: linear-gradient(rgba(0, 31, 63, 0.8), rgba(0, 31, 63, 0.8)),
+                url('https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            min-height: 60vh;
+            display: flex;
+            align-items: center;
+            color: white;
+        }
+
+        .contact-card {
+            border: none;
+            border-radius: 10px;
+            overflow: hidden;
+            height: 100%;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        .contact-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .contact-icon {
+            font-size: 2rem;
+            color: var(--accent-blue);
+            margin-bottom: 1rem;
+        }
+
+        .department-card {
+            border-left: 4px solid var(--accent-blue);
+            transition: all 0.3s ease;
+        }
+
+        .department-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
         }
 
         .map-container {
             height: 400px;
-            border-radius: 12px;
+            border-radius: 10px;
             overflow: hidden;
+        }
+
+        .form-control:focus {
+            border-color: var(--accent-blue);
+            box-shadow: 0 0 0 0.25rem rgba(0, 116, 217, 0.25);
+        }
+
+        .contact-info-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 20px;
+        }
+
+        .contact-info-icon {
+            font-size: 1.25rem;
+            color: var(--accent-blue);
+            margin-right: 15px;
+            margin-top: 3px;
+        }
+
+        @media (max-width: 768px) {
+            .contact-hero {
+                min-height: 50vh;
+            }
+
+            .map-container {
+                height: 300px;
+            }
         }
     </style>
 </head>
 
-<body class="font-sans antialiased text-gray-800">
+<body>
     <!-- Navigation -->
-    <nav class="bg-blue-900 text-white shadow-lg">
-        <div class="container mx-auto px-6 py-3 flex justify-between items-center">
-            <div class="flex items-center space-x-4">
-                <img src="img/logo.png" alt="School Logo" class="h-12">
-                <span class="text-xl font-bold">Quinton Group of Schools</span>
-            </div>
-            <div class="hidden md:flex space-x-8">
-                <a href="index.html" class="hover:text-blue-300">Home</a>
-                <a href="about.html" class="hover:text-blue-300">About</a>
-                <a href="academics.html" class="hover:text-blue-300">Academics</a>
-                <a href="contact.html" class="text-blue-300 font-medium">Contact</a>
-            </div>
-            <button class="md:hidden focus:outline-none">
-                <i class="fas fa-bars text-2xl"></i>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-navy fixed-top py-3">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center" href="#">
+                <i class="fas fa-graduation-cap me-2" style="color: #64B5F6;"></i>
+                <span class="fw-bold">Quinton Group of Schools</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
             </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.html">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="academics.html">Academics</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="admissions.html">Admissions</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="contact.html">Contact</a>
+                    </li>
+                    <li class="nav-item ms-lg-3 mt-2 mt-lg-0">
+                        <a class="btn btn-primary px-4" href="#">Apply Now</a>
+                    </li>
+                </ul>
+            </div>
         </div>
     </nav>
 
     <!-- Hero Section -->
-    <section class="hero-gradient py-20 text-white">
-        <div class="container mx-auto px-6 text-center">
-            <h1 class="text-4xl md:text-5xl font-bold mb-6">Contact Us</h1>
-            <p class="text-xl max-w-3xl mx-auto">We’d love to hear from you! Reach out for admissions, partnerships, or
-                general inquiries.</p>
+    <section class="contact-hero">
+        <div class="container py-5">
+            <div class="row">
+                <div class="col-lg-8 mx-auto text-center">
+                    <h1 class="display-4 fw-bold mb-4">Contact Quinton Group</h1>
+                    <p class="lead mb-0">We're here to answer your questions and welcome your feedback</p>
+                </div>
+            </div>
         </div>
     </section>
 
-    <!-- Contact Grid -->
-    <section class="py-16 bg-white">
-        <div class="container mx-auto px-6">
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
-                <!-- Contact Form -->
-                <div>
-                    <h2 class="text-3xl font-bold text-blue-900 mb-8">Send a Message</h2>
-                    <form class="space-y-6">
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                            <div>
-                                <label for="first-name" class="block text-gray-700 font-medium mb-2">First Name*</label>
-                                <input type="text" id="first-name"
-                                    class="w-full px-4 py-3 border border-gray-300 rounded-lg input-focus focus:outline-none"
-                                    required>
-                            </div>
-                            <div>
-                                <label for="last-name" class="block text-gray-700 font-medium mb-2">Last Name*</label>
-                                <input type="text" id="last-name"
-                                    class="w-full px-4 py-3 border border-gray-300 rounded-lg input-focus focus:outline-none"
-                                    required>
-                            </div>
+    <!-- Contact Information -->
+    <section class="py-5 py-lg-7">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="section-title text-navy fw-bold">Get In Touch</h2>
+                <p class="lead mx-auto" style="max-width: 700px;">Multiple ways to connect with our school community</p>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="contact-card card h-100 p-4 text-center">
+                        <div class="contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
                         </div>
-                        <div>
-                            <label for="email" class="block text-gray-700 font-medium mb-2">Email*</label>
-                            <input type="email" id="email"
-                                class="w-full px-4 py-3 border border-gray-300 rounded-lg input-focus focus:outline-none"
-                                required>
+                        <h4 class="text-navy fw-bold mb-3">Our Location</h4>
+                        <address>
+                            18361 Rockview West<br>
+                            Chitungwiza, Harare<br>
+                            Zimbabwe
+                        </address>
+                        <div class="mt-3">
+                            <a href="#map" class="btn btn-outline-primary">View on Map</a>
                         </div>
-                        <div>
-                            <label for="phone" class="block text-gray-700 font-medium mb-2">Phone</label>
-                            <input type="tel" id="phone"
-                                class="w-full px-4 py-3 border border-gray-300 rounded-lg input-focus focus:outline-none">
-                        </div>
-                        <div>
-                            <label for="subject" class="block text-gray-700 font-medium mb-2">Subject*</label>
-                            <select id="subject"
-                                class="w-full px-4 py-3 border border-gray-300 rounded-lg input-focus focus:outline-none"
-                                required>
-                                <option value="" disabled selected>Select an option</option>
-                                <option value="admissions">Admissions Inquiry</option>
-                                <option value="academics">Academic Programs</option>
-                                <option value="partnerships">Partnerships</option>
-                                <option value="general">General Inquiry</option>
-                            </select>
-                        </div>
-                        <div>
-                            <label for="message" class="block text-gray-700 font-medium mb-2">Message*</label>
-                            <textarea id="message" rows="5"
-                                class="w-full px-4 py-3 border border-gray-300 rounded-lg input-focus focus:outline-none"
-                                required></textarea>
-                        </div>
-                        <button type="submit"
-                            class="bg-blue-700 text-white px-8 py-3 rounded-lg font-semibold hover:bg-blue-800 transition-all w-full md:w-auto">Submit
-                            Message</button>
-                    </form>
-                </div>
-
-                <!-- Contact Info & Map -->
-                <div>
-                    <h2 class="text-3xl font-bold text-blue-900 mb-8">Our Locations</h2>
-
-                    <!-- Interactive Map -->
-                    <div class="map-container mb-8 shadow-xl">
-                        <iframe
-                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2483.680380060486!2d-0.127758323456789!3d51.5073506781892!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNTHCsDMwJzI2LjUiTiAwwrAwNyczOS4zIlc!5e0!3m2!1sen!2suk!4v1234567890123!5m2!1sen!2suk"
-                            width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"
-                            referrerpolicy="no-referrer-when-downgrade">
-                        </iframe>
                     </div>
-
-                    <!-- Contact Cards -->
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                        <div class="bg-blue-50 p-6 rounded-lg">
-                            <div class="text-blue-700 text-2xl mb-4">
-                                <i class="fas fa-map-marker-alt"></i>
-                            </div>
-                            <h3 class="text-lg font-semibold mb-2 text-blue-900">London Campus</h3>
-                            <address class="not-italic text-gray-700">
-                                123 Education Road<br>
-                                London, UK WC1X 0AA
-                            </address>
+                </div>
+                <div class="col-md-4">
+                    <div class="contact-card card h-100 p-4 text-center">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone-alt"></i>
                         </div>
-                        <div class="bg-blue-50 p-6 rounded-lg">
-                            <div class="text-blue-700 text-2xl mb-4">
-                                <i class="fas fa-phone-alt"></i>
+                        <h4 class="text-navy fw-bold mb-3">Phone & Email</h4>
+                        <p class="mb-1"><strong>Main Office:</strong> 0718 598 104</p>
+                        <p class="mb-1"><strong>Admissions:</strong> 0785 998 616</p>
+                        <p class="mb-0"><strong>Email:</strong> quintonseniorsch@gmail.com</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="contact-card card h-100 p-4 text-center">
+                        <div class="contact-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <h4 class="text-navy fw-bold mb-3">Office Hours</h4>
+                        <p class="mb-1"><strong>Monday-Friday:</strong> 7:30 AM - 4:30 PM</p>
+                        <p class="mb-1"><strong>Saturday:</strong> 9:00 AM - 12:00 PM</p>
+                        <p class="mb-0"><strong>Sunday:</strong> Closed</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Form -->
+    <section class="py-5 py-lg-7 bg-light">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-10">
+                    <div class="card shadow-sm">
+                        <div class="card-body p-5">
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <h2 class="section-title text-navy fw-bold mb-4">Send Us a Message</h2>
+                                    <p class="mb-4">Have questions or need more information? Fill out the form below and
+                                        we'll respond as quickly as possible.</p>
+
+                                    <form>
+                                        <div class="mb-3">
+                                            <label for="name" class="form-label">Your Name</label>
+                                            <input type="text" class="form-control" id="name" required>
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="email" class="form-label">Email Address</label>
+                                            <input type="email" class="form-control" id="email" required>
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="phone" class="form-label">Phone Number</label>
+                                            <input type="tel" class="form-control" id="phone">
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="subject" class="form-label">Subject</label>
+                                            <select class="form-select" id="subject" required>
+                                                <option value="" selected disabled>Select a subject</option>
+                                                <option value="Admissions">Admissions Inquiry</option>
+                                                <option value="Academics">Academic Programs</option>
+                                                <option value="Fees">Tuition and Fees</option>
+                                                <option value="Employment">Employment Opportunities</option>
+                                                <option value="General">General Inquiry</option>
+                                                <option value="Feedback">Feedback/Suggestion</option>
+                                            </select>
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="message" class="form-label">Your Message</label>
+                                            <textarea class="form-control" id="message" rows="4" required></textarea>
+                                        </div>
+                                        <button type="submit" class="btn btn-primary px-4">Send Message</button>
+                                    </form>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="h-100 d-flex flex-column justify-content-center ps-lg-5 mt-5 mt-lg-0">
+                                        <h3 class="text-navy fw-bold mb-4">Contact by Department</h3>
+
+                                        <div class="department-card card mb-3 p-3">
+                                            <h5 class="fw-bold mb-2">Admissions Office</h5>
+                                            <p class="mb-1"><i class="fas fa-phone me-2"></i> 0785 998 616</p>
+                                            <p class="mb-0"><i class="fas fa-envelope me-2"></i>
+                                                admissions@quintonschools.edu</p>
+                                        </div>
+
+                                        <div class="department-card card mb-3 p-3">
+                                            <h5 class="fw-bold mb-2">Academic Office</h5>
+                                            <p class="mb-1"><i class="fas fa-phone me-2"></i> 0719 123 456</p>
+                                            <p class="mb-0"><i class="fas fa-envelope me-2"></i>
+                                                academics@quintonschools.edu</p>
+                                        </div>
+
+                                        <div class="department-card card mb-3 p-3">
+                                            <h5 class="fw-bold mb-2">Finance Office</h5>
+                                            <p class="mb-1"><i class="fas fa-phone me-2"></i> 0719 234 567</p>
+                                            <p class="mb-0"><i class="fas fa-envelope me-2"></i>
+                                                finance@quintonschools.edu</p>
+                                        </div>
+
+                                        <div class="department-card card p-3">
+                                            <h5 class="fw-bold mb-2">Human Resources</h5>
+                                            <p class="mb-1"><i class="fas fa-phone me-2"></i> 0719 345 678</p>
+                                            <p class="mb-0"><i class="fas fa-envelope me-2"></i> hr@quintonschools.edu
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
-                            <h3 class="text-lg font-semibold mb-2 text-blue-900">Contact</h3>
-                            <p class="text-gray-700">
-                                <strong>Phone:</strong> +44 20 7946 0958<br>
-                                <strong>Email:</strong> info@quitonschools.com
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Map Section -->
+    <section id="map" class="py-5 py-lg-7">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="section-title text-navy fw-bold">Our Location</h2>
+                <p class="lead mx-auto" style="max-width: 700px;">Visit our campus in Chitungwiza, Harare</p>
+            </div>
+            <div class="map-container">
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3798.454407351127!2d31.07515531542253!3d-17.81707088780163!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTfCsDQ5JzAxLjUiUyAzMcKwMDQnMzYuNiJF!5e0!3m2!1sen!2szw!4v1620000000000!5m2!1sen!2szw"
+                    width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy">
+                </iframe>
+            </div>
+            <div class="row mt-4">
+                <div class="col-md-4">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h4 class="text-navy fw-bold mb-3"><i class="fas fa-bus me-2"></i> Transportation</h4>
+                            <p>We offer school bus services covering most areas in Chitungwiza and surrounding
+                                neighborhoods. Contact our transportation office for route information.</p>
+                            <p class="mb-0"><strong>Transport Office:</strong> 0719 456 789</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h4 class="text-navy fw-bold mb-3"><i class="fas fa-calendar-check me-2"></i> Visiting Hours
+                            </h4>
+                            <p>Prospective families are welcome to visit our campus during these hours:</p>
+                            <ul class="mb-0">
+                                <li><strong>Monday-Friday:</strong> 9:00 AM - 2:00 PM</li>
+                                <li><strong>Saturday:</strong> 9:00 AM - 12:00 PM</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h4 class="text-navy fw-bold mb-3"><i class="fas fa-parking me-2"></i> Parking Information
+                            </h4>
+                            <p>Visitor parking is available at the front of the campus. Please check in at the security
+                                gate to receive a visitor pass.</p>
+                            <p class="mb-0"><strong>Note:</strong> All visitors must present ID at the security gate.
                             </p>
                         </div>
                     </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-                    <!-- Office Hours -->
-                    <div class="mt-8 bg-white p-6 border border-gray-200 rounded-lg shadow-sm">
-                        <h3 class="text-xl font-semibold mb-4 text-blue-900">Office Hours</h3>
-                        <ul class="space-y-3">
-                            <li class="flex justify-between">
-                                <span class="text-gray-700">Monday - Friday</span>
-                                <span class="font-medium">8:00 AM - 5:00 PM</span>
-                            </li>
-                            <li class="flex justify-between">
-                                <span class="text-gray-700">Saturday</span>
-                                <span class="font-medium">9:00 AM - 1:00 PM</span>
-                            </li>
-                            <li class="flex justify-between">
-                                <span class="text-gray-700">Sunday</span>
-                                <span class="font-medium">Closed</span>
-                            </li>
-                        </ul>
+    <!-- Emergency Contacts -->
+    <section class="py-5 py-lg-7 bg-light">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="section-title text-navy fw-bold">Emergency Contacts</h2>
+                <p class="lead mx-auto" style="max-width: 700px;">Important numbers for urgent school-related matters
+                </p>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-3">
+                    <div class="card h-100">
+                        <div class="card-body text-center p-4">
+                            <i class="fas fa-first-aid contact-icon"></i>
+                            <h4 class="text-navy fw-bold mb-3">Medical Emergency</h4>
+                            <p class="mb-2"><strong>School Nurse:</strong> 0719 567 890</p>
+                            <p class="mb-0"><strong>After Hours:</strong> 0783 210 987</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="card h-100">
+                        <div class="card-body text-center p-4">
+                            <i class="fas fa-shield-alt contact-icon"></i>
+                            <h4 class="text-navy fw-bold mb-3">Security Office</h4>
+                            <p class="mb-2"><strong>24/7 Security:</strong> 0719 678 901</p>
+                            <p class="mb-0"><strong>Emergency:</strong> 0783 123 456</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="card h-100">
+                        <div class="card-body text-center p-4">
+                            <i class="fas fa-user-tie contact-icon"></i>
+                            <h4 class="text-navy fw-bold mb-3">Principal's Office</h4>
+                            <p class="mb-2"><strong>Direct Line:</strong> 0719 789 012</p>
+                            <p class="mb-0"><strong>After Hours:</strong> 0772 345 678</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="card h-100">
+                        <div class="card-body text-center p-4">
+                            <i class="fas fa-child contact-icon"></i>
+                            <h4 class="text-navy fw-bold mb-3">Student Support</h4>
+                            <p class="mb-2"><strong>Counselor:</strong> 0719 890 123</p>
+                            <p class="mb-0"><strong>Crisis Line:</strong> 0800 123 456</p>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Emergency Contact Banner -->
-    <section class="py-8 bg-red-50 border-t border-b border-red-200">
-        <div class="container mx-auto px-6">
-            <div class="flex flex-col md:flex-row items-center justify-between">
-                <div class="flex items-center mb-4 md:mb-0">
-                    <div class="bg-red-100 p-3 rounded-full mr-4">
-                        <i class="fas fa-exclamation-triangle text-red-600 text-xl"></i>
-                    </div>
-                    <h3 class="text-lg font-semibold text-red-900">Emergency Contact</h3>
-                </div>
-                <div class="flex items-center">
-                    <i class="fas fa-phone-alt text-red-600 mr-2"></i>
-                    <span class="font-mono text-red-900 text-lg">+44 20 7946 0911</span>
-                </div>
+    <!-- Social Media -->
+    <section class="py-5 py-lg-7">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="section-title text-navy fw-bold">Connect With Us</h2>
+                <p class="lead mx-auto" style="max-width: 700px;">Follow us on social media for news and updates</p>
             </div>
-        </div>
-    </section>
-
-    <!-- Admissions CTA -->
-    <section class="py-16 bg-blue-50">
-        <div class="container mx-auto px-6 text-center">
-            <h2 class="text-3xl font-bold text-blue-900 mb-6">Ready to Join Quinton?</h2>
-            <p class="text-xl text-gray-700 max-w-3xl mx-auto mb-8">Our admissions team is available to guide you
-                through the application process.</p>
-            <div class="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-4">
-                <a href="#"
-                    class="bg-blue-700 text-white px-8 py-3 rounded-lg font-semibold hover:bg-blue-800 transition-all inline-block">Schedule
-                    a Campus Tour</a>
-                <a href="#"
-                    class="border-2 border-blue-700 text-blue-700 px-8 py-3 rounded-lg font-semibold hover:bg-blue-700 hover:text-white transition-all inline-block">Download
-                    Admissions Packet</a>
+            <div class="row g-4 justify-content-center">
+                <div class="col-sm-6 col-md-4 col-lg-2">
+                    <a href="#" class="card h-100 text-decoration-none text-center p-4">
+                        <div class="card-body">
+                            <i class="fab fa-facebook-f text-primary mb-3" style="font-size: 2rem;"></i>
+                            <h5 class="fw-bold">Facebook</h5>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-sm-6 col-md-4 col-lg-2">
+                    <a href="#" class="card h-100 text-decoration-none text-center p-4">
+                        <div class="card-body">
+                            <i class="fab fa-twitter text-info mb-3" style="font-size: 2rem;"></i>
+                            <h5 class="fw-bold">Twitter</h5>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-sm-6 col-md-4 col-lg-2">
+                    <a href="#" class="card h-100 text-decoration-none text-center p-4">
+                        <div class="card-body">
+                            <i class="fab fa-instagram text-danger mb-3" style="font-size: 2rem;"></i>
+                            <h5 class="fw-bold">Instagram</h5>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-sm-6 col-md-4 col-lg-2">
+                    <a href="#" class="card h-100 text-decoration-none text-center p-4">
+                        <div class="card-body">
+                            <i class="fab fa-linkedin-in text-primary mb-3" style="font-size: 2rem;"></i>
+                            <h5 class="fw-bold">LinkedIn</h5>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-sm-6 col-md-4 col-lg-2">
+                    <a href="#" class="card h-100 text-decoration-none text-center p-4">
+                        <div class="card-body">
+                            <i class="fab fa-youtube text-danger mb-3" style="font-size: 2rem;"></i>
+                            <h5 class="fw-bold">YouTube</h5>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-sm-6 col-md-4 col-lg-2">
+                    <a href="#" class="card h-100 text-decoration-none text-center p-4">
+                        <div class="card-body">
+                            <i class="fab fa-whatsapp text-success mb-3" style="font-size: 2rem;"></i>
+                            <h5 class="fw-bold">WhatsApp</h5>
+                        </div>
+                    </a>
+                </div>
             </div>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer class="bg-blue-900 text-white py-12">
-        <div class="container mx-auto px-6">
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
-                <div>
-                    <img src="img/logo.png" alt="School Logo" class="h-12 mb-4">
-                    <p class="mb-4">Quinton Group of Schools – Educating global citizens since 1985.</p>
-                    <div class="flex space-x-4">
-                        <a href="#" class="text-white hover:text-blue-300"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#" class="text-white hover:text-blue-300"><i class="fab fa-twitter"></i></a>
-                        <a href="#" class="text-white hover:text-blue-300"><i class="fab fa-linkedin-in"></i></a>
+    <footer class="bg-navy text-white py-5">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-lg-3">
+                    <div class="d-flex align-items-center mb-3">
+                        <i class="fas fa-graduation-cap me-2 fs-3" style="color: #64B5F6;"></i>
+                        <h3 class="fw-bold mb-0">Quinton Group</h3>
+                    </div>
+                    <p class="text-white-50 mb-4">Giving Your Child a Headstart to Greatness</p>
+                    <div class="d-flex gap-3">
+                        <a href="#" class="text-white-50"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="text-white-50"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="text-white-50"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="text-white-50"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" class="text-white-50"><i class="fab fa-youtube"></i></a>
                     </div>
                 </div>
-                <div>
-                    <h3 class="text-lg font-semibold mb-4">Quick Links</h3>
-                    <ul class="space-y-2">
-                        <li><a href="index.html" class="hover:text-blue-300">Home</a></li>
-                        <li><a href="about.html" class="hover:text-blue-300">About Us</a></li>
-                        <li><a href="academics.html" class="hover:text-blue-300">Academics</a></li>
-                        <li><a href="contact.html" class="hover:text-blue-300">Contact</a></li>
+                <div class="col-lg-3">
+                    <h5 class="fw-bold mb-4">Quick Links</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="index.html">Home</a></li>
+                        <li class="mb-2"><a href="about.html">About</a></li>
+                        <li class="mb-2"><a href="academics.html">Academics</a></li>
+                        <li class="mb-2"><a href="admissions.html">Admissions</a></li>
+                        <li class="mb-2"><a href="contact.html">Contact</a></li>
                     </ul>
                 </div>
-                <div>
-                    <h3 class="text-lg font-semibold mb-4">Admissions</h3>
-                    <ul class="space-y-2">
-                        <li><a href="#" class="hover:text-blue-300">Application Process</a></li>
-                        <li><a href="#" class="hover:text-blue-300">Tuition & Fees</a></li>
-                        <li><a href="#" class="hover:text-blue-300">Scholarships</a></li>
-                        <li><a href="#" class="hover:text-blue-300">FAQs</a></li>
-                    </ul>
+                <div class="col-lg-3">
+                    <h5 class="fw-bold mb-4">Contact Us</h5>
+                    <address class="text-white-50">
+                        <p class="mb-2"><i class="fas fa-map-marker-alt me-2"></i> 18361 Rockview West</p>
+                        <p class="mb-2"><i class="fas fa-city me-2"></i> Chitungwiza, Harare</p>
+                        <p class="mb-2"><i class="fas fa-phone me-2"></i> 0718 598 104 / 0785 998 616</p>
+                        <p class="mb-0"><i class="fas fa-envelope me-2"></i> quintonseniorsch@gmail.com</p>
+                    </address>
                 </div>
-                <div>
-                    <h3 class="text-lg font-semibold mb-4">Contact</h3>
-                    <p class="mb-2"><i class="fas fa-map-marker-alt mr-2"></i> 123 Education Road, London</p>
-                    <p class="mb-2"><i class="fas fa-phone mr-2"></i> +44 20 7946 0958</p>
-                    <p class="mb-4"><i class="fas fa-envelope mr-2"></i> info@quitonschools.com</p>
-                    <a href="#" class="text-blue-300 hover:text-white font-medium">View All Campuses →</a>
+                <div class="col-lg-3">
+                    <h5 class="fw-bold mb-4">Newsletter</h5>
+                    <p class="text-white-50 mb-3">Subscribe for school news and updates</p>
+                    <form class="mb-3">
+                        <div class="input-group">
+                            <input type="email" class="form-control" placeholder="Your email">
+                            <button class="btn btn-primary" type="submit">Subscribe</button>
+                        </div>
+                    </form>
                 </div>
             </div>
-            <div class="border-t border-blue-800 mt-8 pt-8 text-center text-blue-300">
-                <p>© 2023 Quinton Group of Schools. All rights reserved.</p>
+            <hr class="my-4 bg-white-10">
+            <div class="row">
+                <div class="col-md-6 text-center text-md-start">
+                    <p class="mb-0 text-white-50">&copy;
+                        <script>document.write(new Date().getFullYear())</script> Quinton Group of Schools. All rights
+                        reserved.
+                    </p>
+                </div>
+                <div class="col-md-6 text-center text-md-end">
+                    <a href="#" class="text-white-50 me-3">Privacy Policy</a>
+                    <a href="#" class="text-white-50">Terms of Service</a>
+                </div>
             </div>
         </div>
     </footer>
 
-    <script>
-        // Form validation would go here in a real implementation
-        document.addEventListener('DOMContentLoaded', function () {
-            // You could add Google Maps JS API interactivity here
-            console.log('Contact page loaded');
-        });
-    </script>
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 
 </html>

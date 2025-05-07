@@ -4,434 +4,818 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admissions | Quinton Group of Schools</title>
-    <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Admissions - Quinton Group of Schools</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="apple-touch-icon" sizes="180x180" href="img/favicon/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="img/favicon/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="img/favicon/favicon-16x16.png">
-    <link rel="manifest" href="img/favicon/site.webmanifest">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
     <style>
-        .hero-gradient {
-            background: linear-gradient(135deg, #001f3f 0%, #003366 50%, #00509e 100%);
+        :root {
+            --navy-blue: #001F3F;
+            --dark-blue: #003366;
+            --medium-blue: #005B96;
+            --light-blue: #E6F2FF;
+            --accent-blue: #0074D9;
         }
 
-        .process-step {
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: #333;
+        }
+
+        .bg-navy {
+            background-color: var(--navy-blue) !important;
+        }
+
+        .text-navy {
+            color: var(--navy-blue) !important;
+        }
+
+        .btn-primary {
+            background-color: var(--accent-blue);
+            border-color: var(--accent-blue);
+        }
+
+        .section-title {
             position: relative;
+            margin-bottom: 3rem;
         }
 
-        .process-step:not(:last-child):after {
+        .section-title:after {
             content: "";
             position: absolute;
-            left: 24px;
-            top: 40px;
-            height: calc(100% - 40px);
-            width: 2px;
-            background: #2563eb;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: var(--accent-blue);
         }
 
-        .tab-active {
-            border-bottom: 3px solid #2563eb;
-            color: #2563eb;
-            font-weight: 600;
+        .admissions-hero {
+            background: linear-gradient(rgba(0, 31, 63, 0.8), rgba(0, 31, 63, 0.8)),
+                url('https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            min-height: 60vh;
+            display: flex;
+            align-items: center;
+            color: white;
+        }
+
+        .process-card {
+            border: none;
+            border-radius: 10px;
+            overflow: hidden;
+            height: 100%;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        .process-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .process-number {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: var(--accent-blue);
+            color: white;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            margin: 0 auto 1rem;
+        }
+
+        .fee-card {
+            border-left: 4px solid var(--accent-blue);
+            transition: all 0.3s ease;
+        }
+
+        .fee-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .faq-card {
+            border: none;
+            border-radius: 10px;
+            margin-bottom: 15px;
+            overflow: hidden;
+        }
+
+        .faq-header {
+            background-color: var(--light-blue);
+            padding: 15px 20px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .faq-header:hover {
+            background-color: #d0e3ff;
+        }
+
+        .faq-header[aria-expanded="true"] {
+            background-color: var(--accent-blue);
+            color: white;
+        }
+
+        .faq-body {
+            padding: 20px;
+            background-color: #f9f9f9;
+        }
+
+        .requirements-list {
+            list-style-type: none;
+            padding-left: 0;
+        }
+
+        .requirements-list li {
+            padding: 8px 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        .requirements-list li:before {
+            content: "✓";
+            color: var(--accent-blue);
+            font-weight: bold;
+            margin-right: 10px;
+        }
+
+        .form-control:focus {
+            border-color: var(--accent-blue);
+            box-shadow: 0 0 0 0.25rem rgba(0, 116, 217, 0.25);
+        }
+
+        @media (max-width: 768px) {
+            .admissions-hero {
+                min-height: 50vh;
+            }
         }
     </style>
 </head>
 
-<body class="font-sans antialiased text-gray-800">
+<body>
     <!-- Navigation -->
-    <nav class="bg-blue-900 text-white shadow-lg">
-        <div class="container mx-auto px-6 py-3 flex justify-between items-center">
-            <div class="flex items-center space-x-4">
-                <img src="img/logo.png" alt="School Logo" class="h-12">
-                <span class="text-xl font-bold">Quinton Group of Schools</span>
-            </div>
-            <div class="hidden md:flex space-x-8">
-                <a href="index.html" class="hover:text-blue-300">Home</a>
-                <a href="about.html" class="hover:text-blue-300">About</a>
-                <a href="academics.html" class="hover:text-blue-300">Academics</a>
-                <a href="admissions.html" class="text-blue-300 font-medium">Admissions</a>
-                <a href="contact.html" class="hover:text-blue-300">Contact</a>
-            </div>
-            <button class="md:hidden focus:outline-none">
-                <i class="fas fa-bars text-2xl"></i>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-navy fixed-top py-3">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center" href="#">
+                <i class="fas fa-graduation-cap me-2" style="color: #64B5F6;"></i>
+                <span class="fw-bold">Quinton Group of Schools</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
             </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.html">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="academics.html">Academics</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="admissions.html">Admissions</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Contact</a>
+                    </li>
+                    <li class="nav-item ms-lg-3 mt-2 mt-lg-0">
+                        <a class="btn btn-primary px-4" href="#">Apply Now</a>
+                    </li>
+                </ul>
+            </div>
         </div>
-    </nav> 
+    </nav>
 
     <!-- Hero Section -->
-    <section class="hero-gradient py-20 text-white">
-        <div class="container mx-auto px-6 text-center">
-            <h1 class="text-4xl md:text-5xl font-bold mb-6">Admissions</h1>
-            <p class="text-xl max-w-3xl mx-auto">Begin your journey to excellence. We're accepting applications for the
-                2024-2025 academic year.</p>
+    <section class="admissions-hero">
+        <div class="container py-5">
+            <div class="row">
+                <div class="col-lg-8 mx-auto text-center">
+                    <h1 class="display-4 fw-bold mb-4">Admissions Process</h1>
+                    <p class="lead mb-0">Begin your journey to academic excellence at Quinton Group of Schools</p>
+                </div>
+            </div>
         </div>
     </section>
 
-    <!-- Application Tabs -->
-    <section class="py-16 bg-white">
-        <div class="container mx-auto px-6">
-            <div class="flex flex-wrap border-b border-gray-200 mb-12">
-                <button class="tab-active py-4 px-6 text-lg font-medium">Day School</button>
-                <button class="py-4 px-6 text-lg font-medium text-gray-500 hover:text-blue-600">Boarding</button>
-                <button class="py-4 px-6 text-lg font-medium text-gray-500 hover:text-blue-600">International
-                    Students</button>
-                <button class="py-4 px-6 text-lg font-medium text-gray-500 hover:text-blue-600">Scholarships</button>
+    <!-- Admissions Process -->
+    <section class="py-5 py-lg-7">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="section-title text-navy fw-bold">How to Apply</h2>
+                <p class="lead mx-auto" style="max-width: 700px;">Our straightforward admissions process ensures a
+                    smooth transition for your child</p>
             </div>
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-3">
+                    <div class="process-card card h-100 p-4 text-center">
+                        <div class="process-number">1</div>
+                        <h4 class="text-navy fw-bold mb-3">Inquiry</h4>
+                        <p>Submit an online inquiry form or visit our campus to learn more about our programs and
+                            philosophy.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="process-card card h-100 p-4 text-center">
+                        <div class="process-number">2</div>
+                        <h4 class="text-navy fw-bold mb-3">Tour & Interview</h4>
+                        <p>Schedule a campus tour and interview with our admissions team to discuss your child's needs.
+                        </p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="process-card card h-100 p-4 text-center">
+                        <div class="process-number">3</div>
+                        <h4 class="text-navy fw-bold mb-3">Assessment</h4>
+                        <p>Complete the required academic assessment (varies by grade level) and submit all documents.
+                        </p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="process-card card h-100 p-4 text-center">
+                        <div class="process-number">4</div>
+                        <h4 class="text-navy fw-bold mb-3">Enrollment</h4>
+                        <p>Receive admission decision and complete enrollment paperwork to secure your child's place.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center mt-5">
+                <a href="#inquiryForm" class="btn btn-primary px-5 me-3">Start Your Application</a>
+                <a href="#" class="btn btn-outline-primary px-5">Schedule a Tour</a>
+            </div>
+        </div>
+    </section>
 
-            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-16">
-                <!-- Key Dates Card -->
-                <div class="bg-blue-50 border border-blue-200 rounded-xl p-8">
-                    <h3 class="text-2xl font-bold text-blue-900 mb-6">Key Dates</h3>
-                    <ul class="space-y-6">
-                        <li class="flex">
-                            <div
-                                class="bg-blue-100 text-blue-800 rounded-full w-10 h-10 flex items-center justify-center mr-4 flex-shrink-0">
-                                <i class="fas fa-calendar-alt"></i>
+    <!-- Requirements -->
+    <section class="py-5 py-lg-7 bg-light">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 mb-5 mb-lg-0">
+                    <h2 class="section-title text-navy fw-bold">Admission Requirements</h2>
+                    <p class="lead mb-4">To ensure the best possible educational experience, we have specific
+                        requirements for each grade level.</p>
+
+                    <div class="accordion" id="requirementsAccordion">
+                        <div class="card mb-3">
+                            <div class="card-header" id="headingEarly">
+                                <h5 class="mb-0">
+                                    <button class="btn btn-link" type="button" data-bs-toggle="collapse"
+                                        data-bs-target="#collapseEarly" aria-expanded="true"
+                                        aria-controls="collapseEarly">
+                                        Early Years (Ages 3-5)
+                                    </button>
+                                </h5>
                             </div>
-                            <div>
-                                <h4 class="font-semibold text-blue-900">Application Deadline</h4>
-                                <p class="text-gray-700">January 15, 2024</p>
+                            <div id="collapseEarly" class="collapse show" aria-labelledby="headingEarly"
+                                data-parent="#requirementsAccordion">
+                                <div class="card-body">
+                                    <ul class="requirements-list">
+                                        <li>Completed application form</li>
+                                        <li>Birth certificate</li>
+                                        <li>Immunization records</li>
+                                        <li>Recent passport photo</li>
+                                        <li>Parent/guardian interview</li>
+                                    </ul>
+                                </div>
                             </div>
-                        </li>
-                        <li class="flex">
-                            <div
-                                class="bg-blue-100 text-blue-800 rounded-full w-10 h-10 flex items-center justify-center mr-4 flex-shrink-0">
-                                <i class="fas fa-calendar-check"></i>
+                        </div>
+                        <div class="card mb-3">
+                            <div class="card-header" id="headingPrimary">
+                                <h5 class="mb-0">
+                                    <button class="btn btn-link collapsed" type="button" data-bs-toggle="collapse"
+                                        data-bs-target="#collapsePrimary" aria-expanded="false"
+                                        aria-controls="collapsePrimary">
+                                        Primary School (Grades 1-7)
+                                    </button>
+                                </h5>
                             </div>
-                            <div>
-                                <h4 class="font-semibold text-blue-900">Admissions Decisions</h4>
-                                <p class="text-gray-700">March 1, 2024</p>
+                            <div id="collapsePrimary" class="collapse" aria-labelledby="headingPrimary"
+                                data-parent="#requirementsAccordion">
+                                <div class="card-body">
+                                    <ul class="requirements-list">
+                                        <li>Completed application form</li>
+                                        <li>Birth certificate</li>
+                                        <li>Previous school reports (last 2 years)</li>
+                                        <li>Recommendation letter from previous school</li>
+                                        <li>Entrance assessment in English and Mathematics</li>
+                                        <li>Recent passport photo</li>
+                                    </ul>
+                                </div>
                             </div>
-                        </li>
-                        <li class="flex">
-                            <div
-                                class="bg-blue-100 text-blue-800 rounded-full w-10 h-10 flex items-center justify-center mr-4 flex-shrink-0">
-                                <i class="fas fa-school"></i>
+                        </div>
+                        <div class="card">
+                            <div class="card-header" id="headingSecondary">
+                                <h5 class="mb-0">
+                                    <button class="btn btn-link collapsed" type="button" data-bs-toggle="collapse"
+                                        data-bs-target="#collapseSecondary" aria-expanded="false"
+                                        aria-controls="collapseSecondary">
+                                        Secondary School (Forms 1-6)
+                                    </button>
+                                </h5>
                             </div>
-                            <div>
-                                <h4 class="font-semibold text-blue-900">Orientation Week</h4>
-                                <p class="text-gray-700">August 19-23, 2024</p>
+                            <div id="collapseSecondary" class="collapse" aria-labelledby="headingSecondary"
+                                data-parent="#requirementsAccordion">
+                                <div class="card-body">
+                                    <ul class="requirements-list">
+                                        <li>Completed application form</li>
+                                        <li>Birth certificate</li>
+                                        <li>Previous school reports (last 2 years)</li>
+                                        <li>Recommendation letters (2)</li>
+                                        <li>Entrance assessment in English, Mathematics, and Science</li>
+                                        <li>Personal statement (Form 4 and above)</li>
+                                        <li>Recent passport photo</li>
+                                    </ul>
+                                </div>
                             </div>
-                        </li>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="card h-100 shadow-sm">
+                        <div class="card-body p-4">
+                            <h3 class="text-navy fw-bold mb-4">Important Dates for 2023/2024</h3>
+                            <div class="table-responsive">
+                                <table class="table">
+                                    <thead class="bg-primary text-white">
+                                        <tr>
+                                            <th>Term</th>
+                                            <th>Application Deadline</th>
+                                            <th>Assessment Dates</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>First Term</td>
+                                            <td>15 July 2023</td>
+                                            <td>22-26 July 2023</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Second Term</td>
+                                            <td>15 November 2023</td>
+                                            <td>20-24 November 2023</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Third Term</td>
+                                            <td>15 March 2024</td>
+                                            <td>18-22 March 2024</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="alert alert-info mt-4">
+                                <i class="fas fa-info-circle me-2"></i> Late applications may be considered if spaces
+                                are available. Please contact our admissions office.
+                            </div>
+                            <div class="text-center mt-4">
+                                <a href="#" class="btn btn-primary">Download Full Admissions Calendar</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tuition & Fees -->
+    <section class="py-5 py-lg-7">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="section-title text-navy fw-bold">Tuition & Fees</h2>
+                <p class="lead mx-auto" style="max-width: 700px;">Investing in your child's future with transparent fee
+                    structures</p>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-4">
+                    <div class="fee-card card h-100 p-4">
+                        <div class="card-body">
+                            <h3 class="text-navy fw-bold mb-4">Early Years</h3>
+                            <h4 class="text-primary mb-4">$1,200 <small class="text-muted">per term</small></h4>
+                            <ul class="mb-4">
+                                <li>Includes all learning materials</li>
+                                <li>Daily nutritious snacks</li>
+                                <li>Specialist classes (Music, PE)</li>
+                                <li>School events participation</li>
+                            </ul>
+                            <p class="small text-muted">* Registration fee: $100 (one-time)</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="fee-card card h-100 p-4">
+                        <div class="card-body">
+                            <h3 class="text-navy fw-bold mb-4">Primary School</h3>
+                            <h4 class="text-primary mb-4">$1,500 <small class="text-muted">per term</small></h4>
+                            <ul class="mb-4">
+                                <li>Includes textbooks and workbooks</li>
+                                <li>Laboratory and computer fees</li>
+                                <li>Extracurricular activities</li>
+                                <li>Educational field trips</li>
+                            </ul>
+                            <p class="small text-muted">* Registration fee: $150 (one-time)</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="fee-card card h-100 p-4">
+                        <div class="card-body">
+                            <h3 class="text-navy fw-bold mb-4">Secondary School</h3>
+                            <h4 class="text-primary mb-4">$1,800 <small class="text-muted">per term</small></h4>
+                            <ul class="mb-4">
+                                <li>Includes all academic materials</li>
+                                <li>Science laboratory fees</li>
+                                <li>Technology access fees</li>
+                                <li>Career counseling services</li>
+                            </ul>
+                            <p class="small text-muted">* Registration fee: $200 (one-time)</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-4">
+                <div class="col-lg-8 mx-auto">
+                    <div class="card">
+                        <div class="card-body p-4">
+                            <h4 class="text-navy fw-bold mb-3">Additional Information</h4>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <ul>
+                                        <li><strong>Payment Plans:</strong> Available upon request</li>
+                                        <li><strong>Sibling Discount:</strong> 10% for second child, 15% for third+</li>
+                                    </ul>
+                                </div>
+                                <div class="col-md-6">
+                                    <ul>
+                                        <li><strong>Uniforms:</strong> Approximately $150 (purchased separately)</li>
+                                        <li><strong>Transportation:</strong> Optional bus service available</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="text-center mt-3">
+                                <a href="#" class="btn btn-outline-primary">View Detailed Fee Structure</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Financial Aid -->
+    <section class="py-5 py-lg-7 bg-light">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6 mb-5 mb-lg-0">
+                    <h2 class="section-title text-navy fw-bold">Financial Aid & Scholarships</h2>
+                    <p class="lead mb-4">We believe financial circumstances should not prevent qualified students from
+                        accessing quality education.</p>
+                    <p>Quinton Group of Schools offers several financial assistance options:</p>
+                    <ul class="mb-4">
+                        <li><strong>Merit Scholarships:</strong> For students with exceptional academic records</li>
+                        <li><strong>Need-Based Aid:</strong> For families demonstrating financial need</li>
+                        <li><strong>Special Talent Awards:</strong> For students excelling in arts, sports, or
+                            leadership</li>
+                        <li><strong>Alumni Scholarships:</strong> For children of Quinton alumni</li>
                     </ul>
+                    <p class="mb-4">Applications for financial aid are considered separately from admissions
+                        applications and require additional documentation.</p>
+                    <a href="#" class="btn btn-primary px-4">Learn About Financial Aid</a>
                 </div>
-
-                <!-- Requirements Card -->
-                <div class="bg-white border border-gray-200 rounded-xl shadow-sm overflow-hidden">
-                    <div class="bg-blue-900 text-white px-6 py-4">
-                        <h3 class="text-xl font-bold">Admissions Requirements</h3>
-                    </div>
-                    <div class="p-6">
-                        <ul class="space-y-4">
-                            <li class="flex items-start">
-                                <i class="fas fa-check-circle text-blue-600 mt-1 mr-3"></i>
-                                <span>Completed application form</span>
-                            </li>
-                            <li class="flex items-start">
-                                <i class="fas fa-check-circle text-blue-600 mt-1 mr-3"></i>
-                                <span>Previous school transcripts (last 2 years)</span>
-                            </li>
-                            <li class="flex items-start">
-                                <i class="fas fa-check-circle text-blue-600 mt-1 mr-3"></i>
-                                <span>Teacher recommendations (2 required)</span>
-                            </li>
-                            <li class="flex items-start">
-                                <i class="fas fa-check-circle text-blue-600 mt-1 mr-3"></i>
-                                <span>Entrance assessment or SSAT scores</span>
-                            </li>
-                            <li class="flex items-start">
-                                <i class="fas fa-check-circle text-blue-600 mt-1 mr-3"></i>
-                                <span>Family interview (virtual or in-person)</span>
-                            </li>
-                        </ul>
-                        <a href="#" class="mt-6 inline-block text-blue-600 hover:text-blue-800 font-medium">Download
-                            Full Checklist →</a>
-                    </div>
-                </div>
-
-                <!-- Tuition Card -->
-                <div class="bg-white border border-gray-200 rounded-xl shadow-sm overflow-hidden">
-                    <div class="bg-blue-900 text-white px-6 py-4">
-                        <h3 class="text-xl font-bold">Tuition & Fees (2024-2025)</h3>
-                    </div>
-                    <div class="p-6">
-                        <table class="w-full mb-4">
-                            <tbody class="divide-y divide-gray-200">
-                                <tr>
-                                    <td class="py-2 text-gray-700">Grade K-5</td>
-                                    <td class="py-2 text-right font-medium">£18,500/year</td>
-                                </tr>
-                                <tr>
-                                    <td class="py-2 text-gray-700">Grade 6-8</td>
-                                    <td class="py-2 text-right font-medium">£22,300/year</td>
-                                </tr>
-                                <tr>
-                                    <td class="py-2 text-gray-700">Grade 9-12</td>
-                                    <td class="py-2 text-right font-medium">£26,750/year</td>
-                                </tr>
-                                <tr>
-                                    <td class="py-2 text-gray-700">Boarding (additional)</td>
-                                    <td class="py-2 text-right font-medium">£15,000/year</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                        <p class="text-sm text-gray-600">* Payment plans and financial aid available</p>
-                        <a href="#" class="mt-4 inline-block text-blue-600 hover:text-blue-800 font-medium">View Fee
-                            Breakdown →</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Application Process -->
-    <section class="py-16 bg-gray-50">
-        <div class="container mx-auto px-6">
-            <h2 class="text-3xl font-bold text-center text-blue-900 mb-12">Our Admissions Process</h2>
-            <div class="max-w-3xl mx-auto">
-                <!-- Process Step -->
-                <div class="process-step flex pb-12">
-                    <div
-                        class="bg-blue-600 text-white rounded-full w-12 h-12 flex items-center justify-center flex-shrink-0 mr-6">
-                        <span class="font-bold text-xl">1</span>
-                    </div>
-                    <div>
-                        <h3 class="text-xl font-semibold mb-3 text-blue-900">Inquiry & Tour</h3>
-                        <p class="text-gray-700">Begin by submitting an inquiry form or scheduling a campus tour.
-                            Virtual tours available for international families.</p>
-                    </div>
-                </div>
-                <!-- Process Step -->
-                <div class="process-step flex pb-12">
-                    <div
-                        class="bg-blue-600 text-white rounded-full w-12 h-12 flex items-center justify-center flex-shrink-0 mr-6">
-                        <span class="font-bold text-xl">2</span>
-                    </div>
-                    <div>
-                        <h3 class="text-xl font-semibold mb-3 text-blue-900">Submit Application</h3>
-                        <p class="text-gray-700">Complete our online application and upload required documents
-                            (transcripts, recommendations, etc.).</p>
-                    </div>
-                </div>
-                <!-- Process Step -->
-                <div class="process-step flex pb-12">
-                    <div
-                        class="bg-blue-600 text-white rounded-full w-12 h-12 flex items-center justify-center flex-shrink-0 mr-6">
-                        <span class="font-bold text-xl">3</span>
-                    </div>
-                    <div>
-                        <h3 class="text-xl font-semibold mb-3 text-blue-900">Student Assessment</h3>
-                        <p class="text-gray-700">All applicants complete an age-appropriate assessment (academic testing
-                            or classroom observation).</p>
-                    </div>
-                </div>
-                <!-- Process Step -->
-                <div class="process-step flex pb-12">
-                    <div
-                        class="bg-blue-600 text-white rounded-full w-12 h-12 flex items-center justify-center flex-shrink-0 mr-6">
-                        <span class="font-bold text-xl">4</span>
-                    </div>
-                    <div>
-                        <h3 class="text-xl font-semibold mb-3 text-blue-900">Family Interview</h3>
-                        <p class="text-gray-700">Meet with our admissions team to discuss your child's needs and the
-                            school's philosophy.</p>
-                    </div>
-                </div>
-                <!-- Process Step -->
-                <div class="process-step flex">
-                    <div
-                        class="bg-blue-600 text-white rounded-full w-12 h-12 flex items-center justify-center flex-shrink-0 mr-6">
-                        <span class="font-bold text-xl">5</span>
-                    </div>
-                    <div>
-                        <h3 class="text-xl font-semibold mb-3 text-blue-900">Admission Decision</h3>
-                        <p class="text-gray-700">Receive notification within 3 weeks of completing all steps. Accepted
-                            students receive enrollment packages.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Scholarships -->
-    <section class="py-16 bg-white">
-        <div class="container mx-auto px-6">
-            <div class="text-center mb-12">
-                <h2 class="text-3xl font-bold text-blue-900 mb-4">Scholarships & Financial Aid</h2>
-                <p class="text-xl text-gray-600 max-w-3xl mx-auto">We award over £2M annually to deserving students
-                    based on merit and need</p>
-            </div>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <div class="border border-gray-200 rounded-lg p-6 hover:shadow-md transition-all">
-                    <div class="text-blue-600 text-4xl mb-4">
-                        <i class="fas fa-medal"></i>
-                    </div>
-                    <h3 class="text-xl font-semibold mb-3 text-blue-900">Academic Excellence</h3>
-                    <p class="text-gray-700 mb-4">For students with exceptional academic records (top 5% nationally).
-                        Covers up to 100% tuition.</p>
-                    <a href="#" class="text-blue-600 hover:text-blue-800 font-medium">Learn Requirements →</a>
-                </div>
-                <div class="border border-gray-200 rounded-lg p-6 hover:shadow-md transition-all">
-                    <div class="text-blue-600 text-4xl mb-4">
-                        <i class="fas fa-music"></i>
-                    </div>
-                    <h3 class="text-xl font-semibold mb-3 text-blue-900">Arts & Athletics</h3>
-                    <p class="text-gray-700 mb-4">For students demonstrating outstanding talent in arts, music, or
-                        sports. Awards up to 50% tuition.</p>
-                    <a href="#" class="text-blue-600 hover:text-blue-800 font-medium">View Categories →</a>
-                </div>
-                <div class="border border-gray-200 rounded-lg p-6 hover:shadow-md transition-all">
-                    <div class="text-blue-600 text-4xl mb-4">
-                        <i class="fas fa-hands-helping"></i>
-                    </div>
-                    <h3 class="text-xl font-semibold mb-3 text-blue-900">Need-Based Aid</h3>
-                    <p class="text-gray-700 mb-4">Financial assistance for families demonstrating need. Amounts vary
-                        based on circumstances.</p>
-                    <a href="#" class="text-blue-600 hover:text-blue-800 font-medium">Calculate Eligibility →</a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- International Students -->
-    <section class="py-16 bg-blue-50">
-        <div class="container mx-auto px-6">
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-                <div>
-                    <h2 class="text-3xl font-bold text-blue-900 mb-6">International Students</h2>
-                    <p class="text-gray-700 mb-6 text-lg">Quinton welcomes students from over 40 countries. Our
-                        dedicated international program includes:</p>
-                    <ul class="space-y-4 mb-8">
-                        <li class="flex items-start">
-                            <i class="fas fa-check-circle text-blue-600 mt-1 mr-3"></i>
-                            <span>ESL support and language immersion</span>
-                        </li>
-                        <li class="flex items-start">
-                            <i class="fas fa-check-circle text-blue-600 mt-1 mr-3"></i>
-                            <span>Visa and immigration assistance</span>
-                        </li>
-                        <li class="flex items-start">
-                            <i class="fas fa-check-circle text-blue-600 mt-1 mr-3"></i>
-                            <span>Homestay and boarding options</span>
-                        </li>
-                        <li class="flex items-start">
-                            <i class="fas fa-check-circle text-blue-600 mt-1 mr-3"></i>
-                            <span>Cultural orientation programs</span>
-                        </li>
-                    </ul>
-                    <a href="#"
-                        class="bg-blue-700 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-800 inline-block">International
-                        Admissions Guide</a>
-                </div>
-                <div class="bg-white p-8 rounded-xl shadow-md">
-                    <h3 class="text-xl font-semibold mb-6 text-blue-900">Required Documents</h3>
-                    <ul class="space-y-4">
-                        <li class="flex items-start p-4 bg-gray-50 rounded-lg">
-                            <i class="fas fa-passport text-blue-600 mr-4 text-xl"></i>
-                            <div>
-                                <h4 class="font-medium text-blue-900">Passport & Visa</h4>
-                                <p class="text-gray-600 text-sm">Copy of passport and previous student visas (if
-                                    applicable)</p>
+                <div class="col-lg-6">
+                    <div class="card shadow-sm">
+                        <div class="card-body p-4">
+                            <h4 class="text-navy fw-bold mb-4">Financial Aid Deadlines</h4>
+                            <div class="table-responsive">
+                                <table class="table">
+                                    <thead class="bg-primary text-white">
+                                        <tr>
+                                            <th>Term</th>
+                                            <th>Application Deadline</th>
+                                            <th>Decisions Released</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>First Term</td>
+                                            <td>1 June 2023</td>
+                                            <td>15 June 2023</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Second Term</td>
+                                            <td>1 October 2023</td>
+                                            <td>15 October 2023</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Third Term</td>
+                                            <td>1 February 2024</td>
+                                            <td>15 February 2024</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
                             </div>
-                        </li>
-                        <li class="flex items-start p-4 bg-gray-50 rounded-lg">
-                            <i class="fas fa-file-alt text-blue-600 mr-4 text-xl"></i>
-                            <div>
-                                <h4 class="font-medium text-blue-900">Transcripts</h4>
-                                <p class="text-gray-600 text-sm">Officially translated academic records</p>
+                            <div class="alert alert-warning mt-3">
+                                <i class="fas fa-exclamation-circle me-2"></i> Financial aid applications must be
+                                submitted before the admissions application deadline.
                             </div>
-                        </li>
-                        <li class="flex items-start p-4 bg-gray-50 rounded-lg">
-                            <i class="fas fa-language text-blue-600 mr-4 text-xl"></i>
-                            <div>
-                                <h4 class="font-medium text-blue-900">English Proficiency</h4>
-                                <p class="text-gray-600 text-sm">TOEFL/IELTS scores for non-native speakers</p>
-                            </div>
-                        </li>
-                    </ul>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- CTA Section -->
-    <section class="py-16 hero-gradient text-white">
-        <div class="container mx-auto px-6 text-center">
-            <h2 class="text-3xl md:text-4xl font-bold mb-6">Begin Your Application</h2>
-            <p class="text-xl mb-8 max-w-3xl mx-auto">Spaces are limited for the 2024-2025 academic year. Start your
-                application today.</p>
-            <div class="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-4">
-                <a href="#"
-                    class="bg-white text-blue-800 px-8 py-3 rounded-lg font-semibold hover:bg-blue-100 inline-block">Apply
-                    Now</a>
-                <a href="#"
-                    class="border-2 border-white px-8 py-3 rounded-lg font-semibold hover:bg-white hover:text-blue-800 inline-block">Request
-                    Information</a>
+    <!-- FAQs -->
+    <section class="py-5 py-lg-7">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="section-title text-navy fw-bold">Frequently Asked Questions</h2>
+            </div>
+            <div class="row">
+                <div class="col-lg-8 mx-auto">
+                    <div class="accordion" id="faqAccordion">
+                        <div class="faq-card card">
+                            <div class="faq-header" id="faqHeadingOne" data-bs-toggle="collapse"
+                                data-bs-target="#faqCollapseOne" aria-expanded="true" aria-controls="faqCollapseOne">
+                                <h5 class="mb-0">
+                                    What is the student-to-teacher ratio at Quinton?
+                                </h5>
+                            </div>
+                            <div id="faqCollapseOne" class="collapse show" aria-labelledby="faqHeadingOne"
+                                data-parent="#faqAccordion">
+                                <div class="faq-body">
+                                    <p>Our average class sizes are:</p>
+                                    <ul>
+                                        <li>Early Years: 15 students with 1 teacher and 1 assistant</li>
+                                        <li>Primary School: 20 students per class</li>
+                                        <li>Secondary School: 22-25 students per class</li>
+                                    </ul>
+                                    <p>These ratios allow for personalized attention while maintaining a dynamic
+                                        classroom environment.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="faq-card card">
+                            <div class="faq-header" id="faqHeadingTwo" data-bs-toggle="collapse"
+                                data-bs-target="#faqCollapseTwo" aria-expanded="false" aria-controls="faqCollapseTwo">
+                                <h5 class="mb-0">
+                                    Do you accept mid-term transfers?
+                                </h5>
+                            </div>
+                            <div id="faqCollapseTwo" class="collapse" aria-labelledby="faqHeadingTwo"
+                                data-parent="#faqAccordion">
+                                <div class="faq-body">
+                                    <p>Yes, we consider mid-term transfers based on availability. The admissions process
+                                        is the same, and we require all previous school records. Please contact our
+                                        admissions office to discuss potential openings.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="faq-card card">
+                            <div class="faq-header" id="faqHeadingThree" data-bs-toggle="collapse"
+                                data-bs-target="#faqCollapseThree" aria-expanded="false"
+                                aria-controls="faqCollapseThree">
+                                <h5 class="mb-0">
+                                    What are the school hours?
+                                </h5>
+                            </div>
+                            <div id="faqCollapseThree" class="collapse" aria-labelledby="faqHeadingThree"
+                                data-parent="#faqAccordion">
+                                <div class="faq-body">
+                                    <p>Our standard school hours are:</p>
+                                    <ul>
+                                        <li>Early Years: 8:00 AM - 12:30 PM (with optional extended care until 3:00 PM)
+                                        </li>
+                                        <li>Primary School: 7:30 AM - 1:00 PM</li>
+                                        <li>Secondary School: 7:30 AM - 2:30 PM</li>
+                                    </ul>
+                                    <p>After-school activities and clubs typically run until 4:00 PM.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="faq-card card">
+                            <div class="faq-header" id="faqHeadingFour" data-bs-toggle="collapse"
+                                data-bs-target="#faqCollapseFour" aria-expanded="false" aria-controls="faqCollapseFour">
+                                <h5 class="mb-0">
+                                    Is transportation provided?
+                                </h5>
+                            </div>
+                            <div id="faqCollapseFour" class="collapse" aria-labelledby="faqHeadingFour"
+                                data-parent="#faqAccordion">
+                                <div class="faq-body">
+                                    <p>Yes, we offer optional bus transportation services covering most areas in
+                                        Chitungwiza and surrounding neighborhoods. Routes and fees vary depending on
+                                        your location. Our transportation coordinator can provide specific details
+                                        during the enrollment process.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="faq-card card">
+                            <div class="faq-header" id="faqHeadingFive" data-bs-toggle="collapse"
+                                data-bs-target="#faqCollapseFive" aria-expanded="false" aria-controls="faqCollapseFive">
+                                <h5 class="mb-0">
+                                    How does Quinton support students with learning differences?
+                                </h5>
+                            </div>
+                            <div id="faqCollapseFive" class="collapse" aria-labelledby="faqHeadingFive"
+                                data-parent="#faqAccordion">
+                                <div class="faq-body">
+                                    <p>Our Learning Support Department provides individualized assistance for students
+                                        with mild to moderate learning differences. Services include:</p>
+                                    <ul>
+                                        <li>Individualized Education Plans (IEPs)</li>
+                                        <li>Small group instruction</li>
+                                        <li>Classroom accommodations</li>
+                                        <li>Collaboration with outside specialists</li>
+                                    </ul>
+                                    <p>We recommend scheduling a meeting with our learning support coordinator to
+                                        discuss your child's specific needs.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="text-center mt-5">
+                        <a href="#" class="btn btn-outline-primary px-5">View All FAQs</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Inquiry Form -->
+    <section id="inquiryForm" class="py-5 py-lg-7 bg-light">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="card shadow-sm">
+                        <div class="card-body p-5">
+                            <div class="text-center mb-5">
+                                <h2 class="section-title text-navy fw-bold">Admissions Inquiry</h2>
+                                <p class="lead">Complete this form to begin your application process</p>
+                            </div>
+                            <form>
+                                <div class="row g-3">
+                                    <div class="col-md-6">
+                                        <label for="firstName" class="form-label">Parent/Guardian First Name</label>
+                                        <input type="text" class="form-control" id="firstName" required>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="lastName" class="form-label">Parent/Guardian Last Name</label>
+                                        <input type="text" class="form-control" id="lastName" required>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="email" class="form-label">Email Address</label>
+                                        <input type="email" class="form-control" id="email" required>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="phone" class="form-label">Phone Number</label>
+                                        <input type="tel" class="form-control" id="phone" required>
+                                    </div>
+                                    <div class="col-12">
+                                        <label for="address" class="form-label">Address</label>
+                                        <input type="text" class="form-control" id="address" required>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="studentName" class="form-label">Student's Name</label>
+                                        <input type="text" class="form-control" id="studentName" required>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="dob" class="form-label">Date of Birth</label>
+                                        <input type="date" class="form-control" id="dob" required>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="grade" class="form-label">Grade Applying For</label>
+                                        <select class="form-select" id="grade" required>
+                                            <option value="" selected disabled>Select grade level</option>
+                                            <optgroup label="Early Years">
+                                                <option value="Pre-K1">Pre-K1 (Age 3)</option>
+                                                <option value="Pre-K2">Pre-K2 (Age 4)</option>
+                                                <option value="Kindergarten">Kindergarten (Age 5)</option>
+                                            </optgroup>
+                                            <optgroup label="Primary School">
+                                                <option value="Grade 1">Grade 1</option>
+                                                <option value="Grade 2">Grade 2</option>
+                                                <option value="Grade 3">Grade 3</option>
+                                                <option value="Grade 4">Grade 4</option>
+                                                <option value="Grade 5">Grade 5</option>
+                                                <option value="Grade 6">Grade 6</option>
+                                                <option value="Grade 7">Grade 7</option>
+                                            </optgroup>
+                                            <optgroup label="Secondary School">
+                                                <option value="Form 1">Form 1</option>
+                                                <option value="Form 2">Form 2</option>
+                                                <option value="Form 3">Form 3</option>
+                                                <option value="Form 4">Form 4</option>
+                                                <option value="Form 5">Form 5</option>
+                                                <option value="Form 6">Form 6</option>
+                                            </optgroup>
+                                        </select>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="currentSchool" class="form-label">Current School (if
+                                            applicable)</label>
+                                        <input type="text" class="form-control" id="currentSchool">
+                                    </div>
+                                    <div class="col-12">
+                                        <label for="questions" class="form-label">Questions or Special
+                                            Considerations</label>
+                                        <textarea class="form-control" id="questions" rows="3"></textarea>
+                                    </div>
+                                    <div class="col-12">
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" id="tourCheck" checked>
+                                            <label class="form-check-label" for="tourCheck">
+                                                I would like to schedule a campus tour
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="col-12 mt-4">
+                                        <button type="submit" class="btn btn-primary btn-lg w-100">Submit
+                                            Inquiry</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer class="bg-blue-900 text-white py-12">
-        <div class="container mx-auto px-6">
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
-                <div>
-                    <img src="img/logo.png" alt="School Logo" class="h-12 mb-4">
-                    <p class="mb-4">Quinton Group of Schools – Where academic excellence meets global citizenship.</p>
-                    <div class="flex space-x-4">
-                        <a href="#" class="text-white hover:text-blue-300"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#" class="text-white hover:text-blue-300"><i class="fab fa-twitter"></i></a>
-                        <a href="#" class="text-white hover:text-blue-300"><i class="fab fa-linkedin-in"></i></a>
+    <footer class="bg-navy text-white py-5">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-lg-3">
+                    <div class="d-flex align-items-center mb-3">
+                        <i class="fas fa-graduation-cap me-2 fs-3" style="color: #64B5F6;"></i>
+                        <h3 class="fw-bold mb-0">Quinton Group</h3>
+                    </div>
+                    <p class="text-white-50 mb-4">Giving Your Child a Headstart to Greatness</p>
+                    <div class="d-flex gap-3">
+                        <a href="#" class="text-white-50"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="text-white-50"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="text-white-50"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="text-white-50"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" class="text-white-50"><i class="fab fa-youtube"></i></a>
                     </div>
                 </div>
-                <div>
-                    <h3 class="text-lg font-semibold mb-4">Admissions</h3>
-                    <ul class="space-y-2">
-                        <li><a href="#" class="hover:text-blue-300">Application Process</a></li>
-                        <li><a href="#" class="hover:text-blue-300">Tuition & Fees</a></li>
-                        <li><a href="#" class="hover:text-blue-300">Scholarships</a></li>
-                        <li><a href="#" class="hover:text-blue-300">International Students</a></li>
+                <div class="col-lg-3">
+                    <h5 class="fw-bold mb-4">Quick Links</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="index.html">Home</a></li>
+                        <li class="mb-2"><a href="about.html">About</a></li>
+                        <li class="mb-2"><a href="academics.html">Academics</a></li>
+                        <li class="mb-2"><a href="admissions.html">Admissions</a></li>
+                        <li class="mb-2"><a href="#">Contact</a></li>
                     </ul>
                 </div>
-                <div>
-                    <h3 class="text-lg font-semibold mb-4">Resources</h3>
-                    <ul class="space-y-2">
-                        <li><a href="#" class="hover:text-blue-300">School Calendar</a></li>
-                        <li><a href="#" class="hover:text-blue-300">Parent Portal</a></li>
-                        <li><a href="#" class="hover:text-blue-300">Uniform Policy</a></li>
-                        <li><a href="#" class="hover:text-blue-300">Transportation</a></li>
-                    </ul>
+                <div class="col-lg-3">
+                    <h5 class="fw-bold mb-4">Contact Us</h5>
+                    <address class="text-white-50">
+                        <p class="mb-2"><i class="fas fa-map-marker-alt me-2"></i> 18361 Rockview West</p>
+                        <p class="mb-2"><i class="fas fa-city me-2"></i> Chitungwiza, Harare</p>
+                        <p class="mb-2"><i class="fas fa-phone me-2"></i> 0718 598 104 / 0785 998 616</p>
+                        <p class="mb-0"><i class="fas fa-envelope me-2"></i> quintonseniorsch@gmail.com</p>
+                    </address>
                 </div>
-                <div>
-                    <h3 class="text-lg font-semibold mb-4">Contact Admissions</h3>
-                    <p class="mb-2"><i class="fas fa-phone mr-2"></i> +44 20 7946 0958</p>
-                    <p class="mb-4"><i class="fas fa-envelope mr-2"></i> admissions@quitonschools.com</p>
-                    <a href="contact.html" class="text-blue-300 hover:text-white font-medium">Schedule a Visit →</a>
+                <div class="col-lg-3">
+                    <h5 class="fw-bold mb-4">Admissions Office</h5>
+                    <p class="text-white-50 mb-3">For admissions inquiries, please contact:</p>
+                    <p class="mb-1"><i class="fas fa-phone me-2"></i> 0782 123 456</p>
+                    <p class="mb-0"><i class="fas fa-envelope me-2"></i> admissions@quintonschools.edu</p>
+                    <p class="text-white-50 mt-3">Office Hours: Mon-Fri, 8:00 AM - 4:00 PM</p>
                 </div>
             </div>
-            <div class="border-t border-blue-800 mt-8 pt-8 text-center text-blue-300">
-                <p>© 2023 Quinton Group of Schools. All rights reserved.</p>
+            <hr class="my-4 bg-white-10">
+            <div class="row">
+                <div class="col-md-6 text-center text-md-start">
+                    <p class="mb-0 text-white-50">&copy;
+                        <script>document.write(new Date().getFullYear())</script> Quinton Group of Schools. All rights
+                        reserved.
+                    </p>
+                </div>
+                <div class="col-md-6 text-center text-md-end">
+                    <a href="#" class="text-white-50 me-3">Privacy Policy</a>
+                    <a href="#" class="text-white-50">Terms of Service</a>
+                </div>
             </div>
         </div>
     </footer>
 
-    <script>
-        // Tab functionality
-        document.addEventListener('DOMContentLoaded', function () {
-            const tabs = document.querySelectorAll('[role="tab"]');
-
-            tabs.forEach(tab => {
-                tab.addEventListener('click', () => {
-                    tabs.forEach(t => t.classList.remove('tab-active', 'text-blue-600'));
-                    tab.classList.add('tab-active', 'text-blue-600');
-                    // Here you would typically load content for the selected tab
-                });
-            });
-        });
-    </script>
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 
 </html>
